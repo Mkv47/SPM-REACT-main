@@ -1,13 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './student.css';
 
 const StudentLogin = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate('/home_st');
+    navigate('/Home=Student');
   };
 
   return (

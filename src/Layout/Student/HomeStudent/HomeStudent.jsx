@@ -6,6 +6,7 @@ import './HomeStudent.css'
 import axios from 'axios';
 import Logo from '../../Z/22405fa43d89aeb0ddf96d741a2776df38abbdfe.png'
 import LogoOut from '../../Z/image.png'
+import pPic from '../../Z/149935571.jpg'
 import '../../Z/Sidenav.css'
 
 export default function Home() {
@@ -147,7 +148,7 @@ export default function Home() {
       
       <div className="top-bar">
         <input type="text" placeholder="Search" className="search-input" />
-        <img src="profile.jpg" alt="Profile" className="profile-pic" />
+        <img src={pPic} alt="Profile" className="profile-pic" />
       </div>
 
       <div className="cards-container">
@@ -214,6 +215,72 @@ export default function Home() {
             <button className="icon-button"><i className="bi bi-trash-fill"></i></button>
           </div>
         </div>
+
+        <div className="course-card">
+          <div className="card-header">
+            <div>
+              <h3>SE202</h3>
+              <p>Software Design and Architecture</p>
+              <p><i className="bi bi-person-fill"></i> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
+            </div>
+            <div className="grade-box FF">FF</div>
+          </div>
+        <p className="resit-status">Resit Exam status: <strong className="FF">Mandatoy</strong><a href="#" className="exam-details">Show exam details</a></p>
+          <div className="card-actions">
+            <button className="btn dark">Confirm Attendance</button>
+            <button className="icon-button"><i className="bi bi-trash-fill"></i></button>
+          </div>
+        </div>
+
+        <div className="course-card">
+          <div className="card-header">
+            <div>
+              <h3>SE202</h3>
+              <p>Software Design and Architecture</p>
+              <p><i className="bi bi-person-fill"></i> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
+            </div>
+            <div className="grade-box FF">FF</div>
+          </div>
+        <p className="resit-status">Resit Exam status: <strong className="FF">Mandatoy</strong><a href="#" className="exam-details">Show exam details</a></p>
+          <div className="card-actions">
+            <button className="btn dark">Confirm Attendance</button>
+            <button className="icon-button"><i className="bi bi-trash-fill"></i></button>
+          </div>
+        </div>
+
+        <div className="course-card">
+          <div className="card-header">
+            <div>
+              <h3>SE202</h3>
+              <p>Software Design and Architecture</p>
+              <p><i className="bi bi-person-fill"></i> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
+            </div>
+            <div className="grade-box FF">FF</div>
+          </div>
+        <p className="resit-status">Resit Exam status: <strong className="FF">Mandatoy</strong><a href="#" className="exam-details">Show exam details</a></p>
+          <div className="card-actions">
+            <button className="btn dark">Confirm Attendance</button>
+            <button className="icon-button"><i className="bi bi-trash-fill"></i></button>
+          </div>
+        </div>
+
+        <div className="course-card">
+          <div className="card-header">
+            <div>
+              <h3>SE202</h3>
+              <p>Software Design and Architecture</p>
+              <p><i className="bi bi-person-fill"></i> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
+            </div>
+            <div className="grade-box FF">FF</div>
+          </div>
+        <p className="resit-status">Resit Exam status: <strong className="FF">Mandatoy</strong><a href="#" className="exam-details">Show exam details</a></p>
+          <div className="card-actions">
+            <button className="btn dark">Confirm Attendance</button>
+            <button className="icon-button"><i className="bi bi-trash-fill"></i></button>
+          </div>
+        </div>
+
+        
       </div>
     </div>
     </>
