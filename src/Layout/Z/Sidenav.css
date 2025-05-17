@@ -1,0 +1,110 @@
+#Sidenav{
+  grid-row: span 10;
+  grid-column: span 1 ;
+  width: 15vw;
+  height: 100vh;
+  font-size: 18px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s linear;
+}
+
+#Sidenav a{
+  color: #fff;
+}
+
+.upperOfSideNav{
+  width: 100%;
+  margin-top: 81px;
+  margin-bottom: 81px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+}
+
+.upperOfSideNav img{
+  width:40px;
+  font-size: 40px;
+}
+
+.upperOfSideNav p{
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+}
+
+.upperOfSideNavbtn{
+  width:40px;
+  height:40px;
+  border-radius: 10px;
+  font-size: 80%;
+}
+
+.sidebar {
+  background-image: linear-gradient(to  top, #450129 , #10062B);
+  color: white;
+  }
+  
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 227;
+  gap: 37.5px;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  gap: 5px;
+  font-weight: lighter;
+  margin: 10px 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 14px;
+}
+
+.sidebar i{
+  font-size: 32px;
+  margin-right: 25px;
+}
+
+.sidebar li:hover {
+  background-color: #2c2a3a;
+}
+
+.sidebar li.active {
+  background-color: #d0d0d0;
+  color: black;
+}
+
+.sidebar .icon {
+  font-size: 15px;
+}
+.SidenavSecretary ul   p{
+  color: aliceblue;
+  font-size: 15px;
+  margin: 10px 0;
+}
+.logoutdiv a{
+  display: flex;
+  flex-direction: row;
+  margin-top: 340px;
+  gap: 10px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+.logoutdiv a:hover{
+  background-color: #2c2a3a;
+}
+.logoutdiv img{
+  height: 10%;
+  width: 10%;
+}

@@ -1,0 +1,71 @@
+
+.LetterGrades{
+    width:95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-color: #fff;
+    grid-row: span 9;
+    grid-column: span 3;
+    position: relative;
+    right: 2.5%;
+    left: 2.5%;
+}
+.LetterGrades .BtnContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width:95%;
+    height: 15%;
+
+}
+.InnerLetterGrades{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width:95%;
+    height: 85%;
+    background-color:#e9ecef;
+}
+.LetterGrades .Thetable{
+    background-color: #fff;
+    height: 95%;
+}
+.LetterGrades .Box{
+    width: 50%;
+    height:35%;
+    margin: 0 3%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #450129;
+    border-radius: 1px ;
+    font-weight: 600;
+    color: #450129;
+}
+.LetterGrades .Box:hover{
+    background-image: linear-gradient(to  left, #450129 , #10062B);
+    color: #fff;
+}
+
+.LetterGrades .Box p{
+    font-size: small;
+    margin: 0;
+    text-align: center;
+}
+.LetterGrades .BtnContainer button{
+    width: 50%;
+    height:65%;
+    margin: 0 3%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #450129;
+    border-radius: 1px ;
+    font-weight: 600;
+    color: #450129;
+}

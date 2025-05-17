@@ -1,0 +1,127 @@
+#root{
+    height: 100vh;
+}
+.Departments{
+    grid-row: span 9;
+    grid-column:  span 3 ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e5e5e7;
+}
+.HeadOfDepartments{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    width: 90%;
+}
+.HeadOfDepartmentsBtns button{
+    padding: 0;
+    width: 150px;
+    height:30px;
+    font-size: small;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #10062B;
+ }
+ .HeadOfDepartmentsBtns button p{
+    font-size: small;
+ }
+.HeadOfDepartmentsBtns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+
+}
+.BodyOfDepartments{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+    width: 90%;
+    background-color: #fff;
+}
+.TheListOfFaculty{
+    display:flex;
+    flex-direction: column;
+    background-color: #E9ECEF;
+    width: 95%;
+    height: 75%;
+    border-radius: 10px;
+}
+.FacultyBar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    height: 20%;
+    width: 90%;
+    overflow-x:scroll ;
+}
+.FacultyBar .DepartmentsBox{
+    height: 60%;
+   
+    margin: 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px ;
+
+    background-color: #fff;
+   
+}
+.FacultyBar .DepartmentsBox:hover{
+    background-image: linear-gradient(to  left, #450129 , #10062B);
+
+}
+.FacultyBar .DepartmentsBox:hover p{
+  color: #fff;
+}
+.FacultyBar .DepartmentsBox p{
+    font-size: small;
+    margin: 0;
+    text-align: center;
+    color: #450129;
+    width:150px;
+    font-family: 'Poppins', sans-serif!important;
+    font-weight: 600;
+}
+.FacultyBar .BoxContinar{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    height: 20%;
+}
+.FacultyRow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+.FacultyRow div {
+    font-size: larger;
+    color: #450129;
+    gap: 20px;
+}
+.ActiveClass{
+    background-image: linear-gradient(to  left, #450129 , #10062B);
+}
+.icons{
+    display: flex;
+}
+.Departments .cheakboxclassName{
+    display: flex;
+    align-items: center;
+ }
+ .Departments .cheakboxclassName input{
+    transform: scale(1.5);
+    margin: 0;
+ }
+ .Departments p{
+    margin: 0;
+ }

@@ -1,0 +1,132 @@
+
+
+.courses{
+    grid-row: span 9;
+    grid-column:  span 3 ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 92%;
+    left: 4%;
+    border: radius 5px; ;
+    background-color: #fff;
+}
+.courses i {
+    cursor: pointer;
+}
+.courses .ControlOfTheList {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+    grid-gap: 1.5%;
+    gap: 4.5%;
+}
+.courses .active {
+    background-image:  linear-gradient(to  left, #450129 , #10062B);
+    color: #fff;
+ }
+.Box{
+    min-width: 6%;
+    height: 75%;
+    margin: 0 3%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #450129;
+    border-radius: 10px ;
+    font-weight: 600;
+    color: #450129;
+}
+.Box:hover{
+    background-image: linear-gradient(to  left, #450129 , #10062B);
+    color: #fff;
+}
+
+.Box p{
+    font-size: small;
+    margin: 0;
+    text-align: center;
+}
+.BoxContinar{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    height: 10%;
+}
+.courses .theList{
+    height: 90%;
+    width: 95%;
+    background-color:#e9ecef ;
+    border-radius:  5px; ;
+    margin-top: 10px;
+}
+.courses .theList button{
+    height: 25px;
+    width: 20%;
+}
+
+.theListofcourses .isgrid{
+   display: grid;
+ }
+ .theListofcourses .isnone{
+   display: none;
+ }
+  .theListofcourses #AddManulay{
+
+   
+   grid-template-columns: repeat(4,1fr);
+   grid-template-rows:  repeat(10,1fr);
+   position: absolute;
+   width: 60%;
+   background-color: #fdfcfc;
+   color: #000;
+   border-radius: 10px;
+   border: solid 0px #e9ecef;
+   box-shadow: #000000 -1px 1px 5px 0px;
+   padding: 0 20px;
+   justify-items: center;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+ }
+ .theListofcourses .AddManulay h6{
+   grid-row: 1;
+   grid-column: span 4;
+   text-align: center;
+ }
+ .theListofcourses .AddManulay label{
+   grid-column: span 1;
+   grid-row: span 1;
+   left: 0;
+   text-align: left;
+   width: 70%;
+ }
+ .theListofcourses .AddManulay input{
+   grid-column: span 3;
+   grid-row: span 1;
+   width: 85%;
+ }
+ .theListofcourses .AddManulay button{
+   grid-column: span 2;
+   grid-row: span 1;
+   width: 80%;
+
+   background-color: red;
+   border-radius: 5px;
+   border: solid 0px red;
+ }
+ .cheakboxclassName{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+ }
+  .cheakboxclassName input{
+    width: 15px;
+    height: 15px;
+    margin: 0;
+  }
