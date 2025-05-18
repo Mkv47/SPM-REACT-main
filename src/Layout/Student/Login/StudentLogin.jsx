@@ -7,7 +7,7 @@ const StudentLogin = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate('/home_st');
+    navigate('/Home=Student');
   };
 
   return (
@@ -61,7 +61,7 @@ const StudentLogin = () => {
                 under the Law on Protection of Personal Data. (*)
               </label>
             </div>
-            <button type="submit" className="button">Submit</button>
+            <button  type="submit" className="button">Submit</button>
             <div className="lastTwo">
               <a href="resitexam.html">Not a Faculty Secretary</a>
               <a href="https://teksifre.uskudar.edu.tr/">I forgot my Password</a>

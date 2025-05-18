@@ -17,87 +17,87 @@ export default function Home() {
   const [Department, setDepartment] = useState('');
   const [Instructor, setInstructor] = useState('');
   const [onSearchResult, setOnSearchResult] = useState('');
-  const handleCheckboxChange = (event) => {
-    const id = event.target.value;
-    console.log(id)
-    if (event.target.checked) {
-      // Add id
-      setSelectedIds((prev) => [...prev, id]);
-    } else {
-      // Remove id
-      setSelectedIds((prev) => prev.filter((item) => item !== id));
-    }
+  // const handleCheckboxChange = (event) => {
+  //   const id = event.target.value;
+  //   console.log(id)
+  //   if (event.target.checked) {
+  //     // Add id
+  //     setSelectedIds((prev) => [...prev, id]);
+  //   } else {
+  //     // Remove id
+  //     setSelectedIds((prev) => prev.filter((item) => item !== id));
+  //   }
 
-  };
-  const GetFunc=()=>{
-    axios.get('http://localhost:3000/secretary/courses')
-    .then(response => {
-      // console.log(response.data)
-      setCoursesListData(response.data);
-      GetResitIdFunc();
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    }) ;
-  }
+  // };
+  // const GetFunc=()=>{
+  //   axios.get('http://localhost:3000/secretary/courses')
+  //   .then(response => {
+  //     // console.log(response.data)
+  //     setCoursesListData(response.data);
+  //     GetResitIdFunc();
+  //   })
+  //   .catch(error => {
+  //     console.error('Error fetching data:', error);
+  //   }) ;
+  // }
 
-   function splitDateTime(isoString) {
-    const [date, timeWithZ] = isoString.split('T');
-    const time = timeWithZ.replace('Z', '');
-    return { date, time };
-  }
+  //  function splitDateTime(isoString) {
+  //   const [date, timeWithZ] = isoString.split('T');
+  //   const time = timeWithZ.replace('Z', '');
+  //   return { date, time };
+  // }
 
-  const DeleteFunc=()=>{
-    selectedIds.forEach((id) => {
-      console.log(id)
-      if (id) { 
-        axios.delete(`http://localhost:3000/course/${id}`, {
-          data: {
-            secretaryId: 'sec-001'
-          }
-        })
-        .then(() => {
-          GetFunc(); // Refresh the data after deletion
-        })
-        .catch(error => {
-          console.error(`Error deleting data for id ${id}:`, error);
-        });
-      } else {
-        console.error('Invalid id detected:', id);
-      }
-    });
-    setSelectedIds([]);
-  }
+  // const DeleteFunc=()=>{
+  //   selectedIds.forEach((id) => {
+  //     console.log(id)
+  //     if (id) { 
+  //       axios.delete(`http://localhost:3000/course/${id}`, {
+  //         data: {
+  //           secretaryId: 'sec-001'
+  //         }
+  //       })
+  //       .then(() => {
+  //         GetFunc(); // Refresh the data after deletion
+  //       })
+  //       .catch(error => {
+  //         console.error(`Error deleting data for id ${id}:`, error);
+  //       });
+  //     } else {
+  //       console.error('Invalid id detected:', id);
+  //     }
+  //   });
+  //   setSelectedIds([]);
+  // }
 
-  const FuncPost=()=>{
-    axios.post('http://localhost:3000/course', {
-      courseId :CourseCode,
-      name: CourseName,
-      resitExamId: CourseCode,
-      department: Department,
-      instructor: Instructor,
-      secretaryId: "sec-001",
-    })
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
-  }
-  const GetResitIdFunc=()=>{
-    axios.get('http://localhost:3000/secretary/resit-exams')
-    .then(response => {
-      // console.log(response.data)
-      setResitExamIdList(response.data);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    }) ;
-  }
-  useEffect(() => {   // Fetch data when the component mounts
-    GetFunc();
-  }, []);
+  // const FuncPost=()=>{
+  //   axios.post('http://localhost:3000/course', {
+  //     courseId :CourseCode,
+  //     name: CourseName,
+  //     resitExamId: CourseCode,
+  //     department: Department,
+  //     instructor: Instructor,
+  //     secretaryId: "sec-001",
+  //   })
+  //   .then(response => {
+  //     console.log(response.data);
+  //   })
+  //   .catch(error => {
+  //     console.error('Error fetching data:', error);
+  //   });
+  // }
+  // const GetResitIdFunc=()=>{
+  //   axios.get('http://localhost:3000/secretary/resit-exams')
+  //   .then(response => {
+  //     // console.log(response.data)
+  //     setResitExamIdList(response.data);
+  //   })
+  //   .catch(error => {
+  //     console.error('Error fetching data:', error);
+  //   }) ;
+  // }
+  // useEffect(() => {   // Fetch data when the component mounts
+  //   GetFunc();
+  // }, []);
    
 
 

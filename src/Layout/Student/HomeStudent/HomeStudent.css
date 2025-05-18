@@ -1,5 +1,5 @@
 #root {
-    display: grid;
+    display: flex!important;
 }
 
 .main-content {
