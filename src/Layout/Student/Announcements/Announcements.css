@@ -34,9 +34,9 @@
     height: 60px;
 }
 
-.tabs button.current{
+.sideSelector .Announcements-button.current{
     background: linear-gradient(90deg, #2c003e, #5b005f);
-    color: white;
+    color: #FFFFFF;
     border: none;
     cursor: default;
 }
@@ -72,10 +72,13 @@
     flex-direction: column;
     background-color: #ebebed;
     gap: 5px;
-    overflow: auto;
 }
 
-.list::-webkit-scrollbar {
+.scroll-List {
+    overflow-y: auto;
+}
+
+.scroll-List::-webkit-scrollbar {
   display: none;
 }
 
@@ -87,6 +90,46 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
     cursor: pointer;
+}
+
+.sideSelector {
+    display: flex;
+    padding-bottom: 10px;
+    min-height: 53px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.sideSelector::-webkit-scrollbar-thumb {
+    background-color: #a8a8a8;
+    border-radius: 10px;
+}
+
+.sideSelector::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+}
+
+.sideSelector::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.sideSelector .Announcements-button{
+    background: #ffffff;
+    border: 1px solid #000000;
+    margin-right: 1rem;
+    height: 40px;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sideSelector .Announcements-button:last-child{
+    margin-right: -10px;
+}
+.sideSelector .Announcements-button:hover{
+    color: #FFFFFF;
+    background: linear-gradient(90deg, #2c003e, #5b005f);
 }
 
 .dropdown h3 {

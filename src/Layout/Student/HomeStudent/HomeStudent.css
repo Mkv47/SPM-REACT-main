@@ -43,7 +43,9 @@
     overflow: auto;
     max-height: 90%;
 }
-
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
 .course-card {
     background-color: white;
     border-radius: 45px;

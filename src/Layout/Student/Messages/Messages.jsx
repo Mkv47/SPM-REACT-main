@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from "react";
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import './ExamDetails.css';
+import './Messages.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Logo from '../../Z/22405fa43d89aeb0ddf96d741a2776df38abbdfe.png'
@@ -158,13 +158,13 @@ export default function Home() {
       </div>
         <div className="table-container">
           <div class="tabs">
-            <button class="current">Exam Details</button>
+            <Link to="/Details">
+              <button>Exam Details</button>
+            </Link>
             <Link to="/Announcements">
               <button>Announcements</button>
             </Link>
-            <Link to="/Messages">
-            <button>My Messages</button>
-            </Link>
+            <button class="current">My Messages</button>
           </div>
           <div class="list">
             <div key={0} onClick={() => toggleHidden(0)} class="dropdown">

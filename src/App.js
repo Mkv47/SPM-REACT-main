@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Layout/Secretary/HomeSecretary/Home';
 import Home_St from './Layout/Student/HomeStudent/HomeStudent';
 import ExamDetails from './Layout/Student/ExamDetails/ExamDetails';
+import Announcements from './Layout/Student/Announcements/Announcements';
+import Messages from './Layout/Student/Messages/Messages';
 import Courses from './Layout/Secretary/Courses/Courses';
 import All from './Layout/Secretary/Courses/All';
 import AnnouncedCourses from './Layout/Secretary/Courses/AnnouncedCourses';
@@ -41,7 +43,9 @@ function App() {
           <Route path="/departments" element={<Departments />} />
 
           <Route path="/Home=Student" element={<Home_St />} />
-          <Route path="/Details" element={<ExamDetails />}>
+          <Route path="/Details" element={<ExamDetails />} />
+          <Route path="/Announcements" element={<Announcements />} />
+          <Route path="/Messages" element={<Messages />}>
             <Route index element={<All />} />
             {/* <Route path='/All' element={<All />} /> */}
             <Route path="AnnouncedCourses" element={<AnnouncedCourses />} />

@@ -123,13 +123,13 @@ export default function Home() {
             <a>Exam Details</a>
           </li>
         </Link>
-        <Link to = "/Home=Student">
+        <Link to = "/Announcements">
           <li>
             <i className="bi bi-grid-fill"></i>
             <a>Announcements</a>
           </li>
         </Link>
-        <Link to = "/Home=Student">
+        <Link to = "/Messages">
           <li>
             <i className="bi bi-grid-fill"></i>
             <a>Messages</a>
