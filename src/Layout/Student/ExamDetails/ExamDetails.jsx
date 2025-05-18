@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState,useEffect } from "react";
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import './ExamDetails.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Logo from '../../Z/22405fa43d89aeb0ddf96d741a2776df38abbdfe.png'
 import LogoOut from '../../Z/image.png'
 import pPic from '../../Z/149935571.jpg'
 import '../../Z/Sidenav.css'
+import '../style.css'
 
 export default function Home() {
   const [selectedIds, setSelectedIds] = useState([]);
@@ -167,88 +167,77 @@ export default function Home() {
             </Link>
           </div>
           <div class="list">
-            <div key={0} onClick={() => toggleHidden(0)} class="dropdown">
-              <h3>SE302 | Software Project Management</h3>
-              <p><strong>👤</strong> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
-              <div hidden={hiddenItems[0] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
-                <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
-                <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
-              </div>
-            </div>
-            <div key={1} onClick={() => toggleHidden(1)} class="dropdown">
-              <h3>MATH302 | Numerical Analysis</h3>
-              <p><strong>👤</strong> Prof. Dr. BURHAN PEKTAŞ</p>
-              <div hidden={hiddenItems[1] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
-                <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
-                <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
-              </div>
-            </div>
-            <div key={2} onClick={() => toggleHidden(2)} class="dropdown">
-              <h3>SE408 | Analysis and Design of User Interfaces</h3>
-              <p><strong>👤</strong> Dr. Öğr. Üyesi BELAYNESH CHEKOL</p>
-              <div hidden={hiddenItems[2] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
-                <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
-                <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
-              </div>
-            </div>
-            <div key={3} onClick={() => toggleHidden(3)} class="dropdown">
-              <h3>SE302 | Software Project Management</h3>
-              <p><strong>👤</strong> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
-              <div hidden={hiddenItems[3] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
-                <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
-                <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
-              </div>
-            </div>
-            <div key={4} onClick={() => toggleHidden(4)} class="dropdown">
-              <h3>SE302 | Software Project Management</h3>
-              <p><strong>👤</strong> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
-              <div hidden={hiddenItems[4] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
-                <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
-                <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
-              </div>
-            </div>
-            <div key={5} onClick={() => toggleHidden(5)} class="dropdown">
-              <h3>SE302 | Software Project Management</h3>
-              <p><strong>👤</strong> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
-              <div hidden={hiddenItems[5] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
-                <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
-                <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
-              </div>
-            </div>
-            <div key={6} onClick={() => toggleHidden(6)} class="dropdown">
-              <h3>SE302 | Software Project Management</h3>
-              <p><strong>👤</strong> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
-              <div hidden={hiddenItems[6] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
-                <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
-                <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
-              </div>
-            </div>
-            <div key={7} onClick={() => toggleHidden(7)} class="dropdown">
-              <h3>SE302 | Software Project Management</h3>
-              <p><strong>👤</strong> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
-              <div hidden={hiddenItems[7] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
-                <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
-                <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
-              </div>
-            </div>
-            <div key={8} onClick={() => toggleHidden(8)} class="dropdown">
-              <h3>SE302 | Software Project Management</h3>
-              <p><strong>👤</strong> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
-              <div hidden={hiddenItems[8] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
-                <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
-                <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
-              </div>
-            </div>
             
+              <div key={1} onClick={() => toggleHidden(1)} class="dropdown">
+                <h3>MATH302 | Numerical Analysis</h3>
+                <p><strong>👤</strong> Prof. Dr. BURHAN PEKTAŞ</p>
+                <div hidden={hiddenItems[1] !== false}>
+                  <div class="middle-elements">
+                    <span>Resit Exam Attendance Status: <span class="highlight">Optional</span></span>
+                    <span>Exam Confirmation Status: <span class="confirmed">Confirmed</span></span>
+                    <button class="cancel-attendence">Cancel Attendence</button>
+                  </div>
+                  <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
+                  <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
+                </div>
+              </div>
+
+              <div key={2} onClick={() => toggleHidden(2)} class="dropdown">
+                <h3>MATH302 | Numerical Analysis</h3>
+                <p><strong>👤</strong> Prof. Dr. BURHAN PEKTAŞ</p>
+                <div hidden={hiddenItems[2] !== false}>
+                  <div class="middle-elements">
+                    <span>Resit Exam Attendance Status: <span class="highlight">Optional</span></span>
+                    <span>Exam Confirmation Status: <span class="confirmed">Confirmed</span></span>
+                    <button class="cancel-attendence">Cancel Attendence</button>
+                  </div>
+                  <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
+                  <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
+                </div>
+              </div>
+
+              <div key={3} onClick={() => toggleHidden(3)} class="dropdown">
+                <h3>MATH302 | Numerical Analysis</h3>
+                <p><strong>👤</strong> Prof. Dr. BURHAN PEKTAŞ</p>
+                <div hidden={hiddenItems[3] !== false}>
+                  <div class="middle-elements">
+                    <span>Resit Exam Attendance Status: <span class="highlight">Optional</span></span>
+                    <span>Exam Confirmation Status: <span class="confirmed">Confirmed</span></span>
+                    <button class="cancel-attendence">Cancel Attendence</button>
+                  </div>
+                  <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
+                  <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
+                </div>
+              </div>
+
+              <div key={4} onClick={() => toggleHidden(4)} class="dropdown">
+                <h3>MATH302 | Numerical Analysis</h3>
+                <p><strong>👤</strong> Prof. Dr. BURHAN PEKTAŞ</p>
+                <div hidden={hiddenItems[4] !== false}>
+                  <div class="middle-elements">
+                    <span>Resit Exam Attendance Status: <span class="highlight">Optional</span></span>
+                    <span>Exam Confirmation Status: <span class="confirmed">Confirmed</span></span>
+                    <button class="cancel-attendence">Cancel Attendence</button>
+                  </div>
+                  <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
+                  <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
+                </div>
+              </div>
+
+              <div key={5} onClick={() => toggleHidden(5)} class="dropdown">
+                <h3>MATH302 | Numerical Analysis</h3>
+                <p><strong>👤</strong> Prof. Dr. BURHAN PEKTAŞ</p>
+                <div hidden={hiddenItems[5] !== false}>
+                  <div class="middle-elements">
+                    <span>Resit Exam Attendance Status: <span class="highlight">Optional</span></span>
+                    <span>Exam Confirmation Status: <span class="confirmed">Confirmed</span></span>
+                    <button class="cancel-attendence">Cancel Attendence</button>
+                  </div>
+                  <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
+                  <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
+                </div>
+              </div>
+
           </div>
         </div>
     </div>

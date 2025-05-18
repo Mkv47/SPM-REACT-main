@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState,useEffect } from "react";
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import './Messages.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Logo from '../../Z/22405fa43d89aeb0ddf96d741a2776df38abbdfe.png'
 import LogoOut from '../../Z/image.png'
 import pPic from '../../Z/149935571.jpg'
 import '../../Z/Sidenav.css'
+import '../style.css'
 
 export default function Home() {
   const [selectedIds, setSelectedIds] = useState([]);
@@ -171,7 +171,7 @@ export default function Home() {
               <h3>SE302 | Software Project Management</h3>
               <p><strong>👤</strong> Dr. Öğr. Üyesi KRİSTİN SURPUHİ BENLİ</p>
               <div hidden={hiddenItems[0] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
+                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span>mmExam Confirmation Status: <span class="confirmed">Confirmed</span></p>
                 <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
                 <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
               </div>
@@ -180,7 +180,7 @@ export default function Home() {
               <h3>MATH302 | Numerical Analysis</h3>
               <p><strong>👤</strong> Prof. Dr. BURHAN PEKTAŞ</p>
               <div hidden={hiddenItems[1] !== false}>
-                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
+                <p>Resit Exam Attendance Status: <span class="highlight">Optional</span>Exam Confirmation Status: <span class="confirmed">Confirmed</span></p>
                 <p>Date: 9.04.2025 &nbsp;&nbsp; Time: 11:00</p>
                 <p>Classrooms: A-Nermin Tarhan, A-Kuleli, D-Ayhan Songar</p>
               </div>

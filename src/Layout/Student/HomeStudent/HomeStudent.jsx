@@ -2,12 +2,12 @@ import React from 'react'
 import { useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import './HomeStudent.css'
 import axios from 'axios';
 import Logo from '../../Z/22405fa43d89aeb0ddf96d741a2776df38abbdfe.png'
 import LogoOut from '../../Z/image.png'
 import pPic from '../../Z/149935571.jpg'
 import '../../Z/Sidenav.css'
+import '../style.css'
 
 export default function Home() {
   const [selectedIds, setSelectedIds] = useState([]);
