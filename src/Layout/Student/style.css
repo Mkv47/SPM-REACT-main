@@ -220,6 +220,12 @@ div .NewMessage {
     align-items: center;
 }
 
+.submitButton {
+    width: 100%;
+    background: linear-gradient(360deg, #2c003e, #5b005f);
+    color: #FFFFFF;
+    
+}
 .dropdown-header .toggle-button {
     width: 30px;
     height: 20px;
@@ -266,7 +272,12 @@ div .NewMessage {
     vertical-align: middle;
     margin-bottom: 30px;
 }
-
+.middle-elements .cancel-attendence {
+    border: none;
+    box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #880100;
+    color: #FFFFFF;
+}
 .search-input {
     width: 100%;
     padding: 10px 15px;

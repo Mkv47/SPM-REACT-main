@@ -89,7 +89,7 @@ const TaskManager = () => {
                 <label htmlFor="uploadFile">Upload Document:</label>
                 <input type="file" id="uploadFile" name="uploadFile" />
               </form>
-            <button type='submit'>Submit</button>
+            <button type='submit' className="submitButton">Submit</button>
           </div>
         </div>
       )}
