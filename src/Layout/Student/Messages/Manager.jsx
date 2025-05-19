@@ -3,6 +3,7 @@ import '../style.css';
 
 const tabs = [
   {
+    // incoming Section V
     title: 'Incoming Messages',
     messages: [
       {
@@ -19,7 +20,8 @@ const tabs = [
       }
     ]
   },
-  // Outgoing section VVV
+
+  // Outgoing Section V
   {
     title: 'Outgoing Messages',
     messages: [
@@ -64,25 +66,25 @@ const TaskManager = () => {
               <form className="inputData" action="/submit" method="POST">
                 <label htmlFor="Contact">Contact:</label>
                 <select name="course" id="Contact">
-                  <option value="">/</option>
+                  <option value="" disabled selected>Select your Contact</option>
                   <option value="SE408">SE408</option>
                   <option value="SE409">SE409</option>
                   <option value="MATH302">MATH302</option>
                 </select>
 
-                <label htmlFor="examTypeSelect">Select Exam Type:</label>
-                <select name="examType" id="examTypeSelect">
-                  <option value="">-- Choose exam type --</option>
+                <label htmlFor="course">For which course you will send a message:</label>
+                <select name="course" id="course">
+                  <option value="" disabled selected>Select your Course</option>
                   <option value="midterm">Midterm</option>
                   <option value="final">Final</option>
                   <option value="resit">Resit</option>
                 </select>
 
-                <label htmlFor="subject">Student Name:</label>
+                <label htmlFor="subject">subject:</label>
                 <input type="text" id="subject" className="subject" placeholder="Subject" />
 
-                <label htmlFor="message">Student ID:</label>
-                <input type="text" id="message" className="message" placeholder="Message" />
+                <label htmlFor="message">Message:</label>
+                <textarea type="textarea" id="message" className="message" placeholder="Message" />
 
                 <label htmlFor="uploadFile">Upload Document:</label>
                 <input type="file" id="uploadFile" name="uploadFile" />
