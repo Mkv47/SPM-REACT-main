@@ -34,7 +34,6 @@ function App() {
           <Route path="/Home-Secretary" element={<Home />} />
           <Route path="/courses" element={<Courses />}>
             <Route index element={<All />} />
-            {/* <Route path='/All' element={<All />} /> */}
             <Route path="AnnouncedCourses" element={<AnnouncedCourses />} />
             <Route path="UnannouncedCourses" element={<UnannouncedCourses />} />
           </Route>

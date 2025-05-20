@@ -17,7 +17,7 @@ export default function Home() {
 
 
       useEffect(() => {
-          const fetchData = async () => {
+     const fetchData = async () => {
       const resits = await GetResitExamList("001");
       const courses = await GetCourseDetails("001");
 

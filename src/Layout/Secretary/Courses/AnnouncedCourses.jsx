@@ -3,28 +3,52 @@ import CoursesRow from './CoursesRow'
 import SearchBar from '../../../Btns/SearchBar'
 import { BsPencilSquare } from 'react-icons/bs';
 import { useState,useEffect } from 'react';
-import axios from 'axios';
+
 import AddManulayForm from './AddManulayForm';
+import { GetCourses ,GetResitExamList,Deletecourse,splitDateTime,Deleteonecourse} from './Functions';
 export default function AnnouncedCourses() {
     const [Addmanualyopener, setAddmanualyopener] = useState(false);
-      const [selectedIds, setSelectedIds] = useState([]);
-      const [coursesListData, setCoursesListData] = useState([]);
-       const [onSearchResult, setOnSearchResult] = useState('');
+    //the list is result of the search bar meaning that this list is the filtered list
+   const [onSearchResult, setOnSearchResult] = useState('');
+   // State to hold the list of resit exams
+  const [resitExamList, setResitExamList] = useState([]);
+  // State to hold the list of courses
+  const [coursesListData, setCoursesListData] = useState([]); 
 
-          const GetFunc=()=>{
-              axios.get('http://localhost:3000/secretary/courses')
-              .then(response => {
-                // console.log(response.data)
-                setCoursesListData(response.data);
-               
-              })
-              .catch(error => {
-                console.error('Error fetching data:', error);
-              }) ;
-             }
-             useEffect(() => {
-                GetFunc();
-              }, []);
+ 
+  //get all courses at the beginning of the page,it get the resit exam list and the courses list
+  const fetchData = async () => {
+   const resits = await GetResitExamList();
+   const courses = await GetCourses();
+
+   setResitExamList(resits);
+     // filter the courses list by chossing the unempthy resit exam
+
+ const filteredCourses =   courses.filter((course) => {
+ const resitExam = resitExamList.find((resit) => resit.id === course.resitExamId);
+  console.log(resitExam)
+ return resitExam && resitExam.examDate !== null && resitExam.examDate !== 'N/A';
+});
+   setCoursesListData(filteredCourses);
+   console.log(filteredCourses)
+ };
+   useEffect(() => {
+        fetchData();
+      }, []);
+
+   //functions to handle the deletion of selected courses
+   const [selectedIds, setSelectedIds] = useState([]); // State to hold selected course IDs
+   const handleCheckboxChange = (event) => {
+    const id = event.target.value;
+    console.log(id);
+    if (event.target.checked) {
+      // Add id
+      setSelectedIds((prev) => [...prev, id]);
+    } else {
+      // Remove id
+      setSelectedIds((prev) => prev.filter((item) => item !== id));
+    }}
+
   return (
     <div className="theList theListofcourses right">
       <nav className="ControlOfTheList">
@@ -36,7 +60,7 @@ export default function AnnouncedCourses() {
           <i className="bi bi-filter"></i>
           Filter
         </button>
-        <SearchBar List={coursesListData} onSearchResult={setOnSearchResult} />
+        <SearchBar List={coursesListData} setOnSearchResult={setOnSearchResult} />
         <button
           onClick={() => setAddmanualyopener(true)}
           style={{ backgroundColor: '#0b0631' }}
@@ -60,18 +84,28 @@ export default function AnnouncedCourses() {
       </nav>
 
       <div className="Thetable Thetableofcourses" id="Thetable">
-     {(Array.isArray(onSearchResult) && onSearchResult.length > 0 ? onSearchResult : coursesListData).map((item) => (
+     {(Array.isArray(onSearchResult) && onSearchResult.length > 0 ? onSearchResult : coursesListData).map((item) => {
+        // Find the corresponding resit exam object 
+            const resitExamobj =resitExamList.find(resit => resit.id === item.resitExamId);
+            const examDate = resitExamobj?.examDate || 'N/A';
+             const { date, time } = examDate !== 'N/A' ? splitDateTime(examDate) : { date: 'N/A', time: 'N/A' };
+             const  room= resitExamobj?.location || 'N/A';
+             const  DateModified= resitExamobj?.updatedAt || 'N/A';
+        return (
           <CoursesRow
             key={item.id}
             CourseId={item.id}
             courseName={item.name}
             courseInstructor={item.instructor}
-            courseRoom={item.room || 'N/A'} // Assuming room is optional
-            courseDate={item.date || 'N/A'} // Assuming date is optional
-            courseTime={item.time || 'N/A'} // Assuming time is optional
-            dateModified={item.dateModified || 'N/A'} // Assuming dateModified is optional
+            courseRoom={room || 'N/A'} // Assuming room is optional
+            courseDate={date || 'N/A'} // Assuming date is optional
+            courseTime={time || 'N/A'} // Assuming time is optional
+            dateModified={DateModified|| 'N/A'} // Assuming dateModified is optional
+            handleCheckboxChange={handleCheckboxChange}
+            selectedIds={selectedIds}
           />
-        ))}
+        );
+      })}
       </div>
       <AddManulayForm
         Addmanualyopener={Addmanualyopener}

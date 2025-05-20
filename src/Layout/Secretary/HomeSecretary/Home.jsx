@@ -131,11 +131,8 @@ export default function Home() {
           <i className="bi bi-filter"></i>
           Filter
         </button>
-        {/* <div className="searchbar">
-          <input type="search" />
-          <i className="bi bi-search"></i>
-        </div> */}
-        <SearchBar List={coursesListData} onSearchResult={setOnSearchResult}/>
+
+        <SearchBar List={coursesListData} setOnSearchResult={setOnSearchResult}/>
 
         <button style={{backgroundColor:'#090029'}} className="btn btn-secondary rounded-1">
         <i className="bi bi-upload"></i>

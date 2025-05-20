@@ -7,14 +7,14 @@ export default function SearchBar(props) {
 
     if (searchValue === '') {
       // If searchValue is empty, return the full list
-      props.onSearchResult(props.List || []);
+      props.setOnSearchResult(props.List || []);
     } else {
       // Filter the list based on the searchValue
       const filteredList = (props.List || []).filter(item =>
         item.name.toLowerCase().includes(searchValue.toLowerCase())
       );
       console.log(filteredList);
-      props.onSearchResult(filteredList);
+      props.setOnSearchResult(filteredList);
     }
   }, [searchValue, props.List]);
 
