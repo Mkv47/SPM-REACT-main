@@ -1,190 +1,105 @@
-:root {
-   height: 100vh;
+#root {
+   display: grid;
 }
-.RightUpSide{
-    grid-column: span 2;
-    grid-row: span 3;
-    background-color: #e9ecef;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-    align-items: flex-start;
- }
- #root {
-   display: grid;
-   grid-template-columns: 15% 1fr 1fr 10%;
-   grid-template-rows: repeat(10,1fr);
-   height: 100vh;
-   width: 100vw;
-   margin: 0;
-   transition: all 1s linear;
-   }
 
+.main-container {
+   max-width: 85vw;
+   width: 85vw;
+   max-height: 100vw;
+   display: flex;
+   background-color: #e8ecef;
+   flex-direction: column;
+}
 
-.InfoCardsContiner{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    grid-column: span 3;
-    grid-row: span 2;
-    width: 100%;
-    background-color: #e9ecef;
+.InfoCardsContiner {
+   display: flex;
+   justify-content: space-between;
+   gap: 100px;
+   align-content: center;
+   padding-left: 100px;
+   padding-right: 100px;
+   padding-top: 50px;
+   padding-bottom: 20px;
+}
 
- } 
- .InfoCard{
-    width: 25%;
-    border-radius: 16px;
-    background-image: linear-gradient(to bottom right, #10062B , #450129);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    transition: all 2s;
-    height: 90%;
-    
- }
- .InfoCard:hover{
-    background-image: linear-gradient(to  right, #450129 , #10062B);
- }
-
- .InfoCard *{
-    margin: 0 0 0 10%;
-
- }
- .InfoCard a{
-    margin-top: 10%;
-    color: blue!important;
- }
- .theList{
-    grid-row: span 6;
-    grid-column:  span 3 ;
-    width: 100%;
-    height: 100%;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #e9ecef;
-    margin-top: 25px;
- }
- .theList button{
-   width: 30%;
-    font-size:7px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
- }
- .theList i{
-    margin-right: 5px;
-    font-size: 15px;
- }
- .ControlOfTheList{
-    width: 90%;
-    display:flex ;
-    justify-content: center;
-    align-items: center;
-    margin:10px 0;
-    gap: 1.5%;
- }
- .Thetable{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height:90%;
-    width: 90%;
-    border-radius: 10px;
-   margin-top: 10px;
-     overflow: scroll;
-    background-color: white;
- }
- .Thetable p{
-    margin: 0;
- }
- .cheakboxclass{
-    display: flex;
-    align-items: center;
- }
- .cheakboxclass input{
-    width: 15px;
-    height: 15px;
-    margin:  0 10px 0 0; 
- }
- .rowoftable{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 10px;
- }
- .searchbar{
-   border-radius: 3px;
-    background-color: lightgrey;
-    display: flex;
-    box-shadow: gray 3px 2px 5px;
- }
- .searchbar input{
-    background-color: lightgrey;
-    border-radius: 10px;
-    height: 25px;
-    border: #e5e5e7 0px;
-    margin: 0;
- }
- .Thetableofcourses{
-    width: 100%;
- }
- .Thetableofcourses .rowoftable{
-    font-size: 12px;
- }
- .theListofcourses button{
-    width: 20%;
- }
- .isgrid{
-   display: grid;
- }
- .isnone{
-   display: none;
- }
- #AddManulay{
-
-   
-   grid-template-columns: repeat(4,1fr);
-   grid-template-rows:  repeat(10,1fr);
-   position: absolute;
-   width: 60%;
-   background-color: #fdfcfc;
-   color: #000;
+.InfoCardsContiner .InfoCard{
+   background: linear-gradient(90deg, #20002c, #5b005f);
+   width: 100%;
+   height: 240px;
    border-radius: 10px;
-   border: solid 0px #e9ecef;
-   box-shadow: #000000 -1px 1px 5px 0px;
-   padding: 0 20px;
-   justify-items: center;
-   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
- }
- .AddManulay h6{
-   grid-row: 1;
-   grid-column: span 4;
-   text-align: center;
- }
- .AddManulay label{
-   grid-column: span 1;
-   grid-row: span 1;
-   left: 0;
-   text-align: left;
-   width: 70%;
- }
- .AddManulay input{
-   grid-column: span 3;
-   grid-row: span 1;
-   width: 85%;
- }
- .AddManulay button{
-   grid-column: span 2;
-   grid-row: span 1;
-   width: 80%;
+   padding: 20px;
+   padding-top: 40px;
+   color: #FFFFFF;
+   font-size: 24px;
+}
 
-   background-color: red;
-   border-radius: 5px;
-   border: solid 0px red;
- }
+.theList {
+   display: flex;
+   padding-right: 100px;
+   padding-left: 100px;
+   flex-direction: column;
+}
+
+.ControlOfTheList{
+   margin-bottom: 20px;
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   height: 50px;
+   justify-content: space-between;
+}
+
+.ControlOfTheList div{
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
+}
+
+.ControlOfTheList button{
+   width: fit-content;
+}
+
+.Thetable {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   width: 100%;
+   height:560px;
+   max-height:560px;
+   background-color: #FFFFFF;
+   border-radius: 10px;
+   padding-left: 40px;
+   padding-right: 40px;
+   padding-bottom: 20px;
+   padding-top: 20px;
+   font-size: 12px;
+}
+
+.Thetable p {
+   display: flex;
+}
+
+.Thetable div {
+   display: flex;
+   min-width: 400px;
+}
+
+.inner-List {
+   display: flex;
+   flex-direction: column;
+   overflow-y: auto;
+}
+
+.Thetable .element {
+   font-weight: lighter;
+   text-align: start;
+}
+
+.Thetable strong{
+   min-width: 100px;
+   max-width: 200px;
+   overflow: auto;
+}
+.Thetable input{
+   margin-right: 20px;
+}

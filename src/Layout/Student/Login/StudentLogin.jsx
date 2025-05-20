@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './student.css';
 
 const StudentLogin = () => {
   const navigate = useNavigate();

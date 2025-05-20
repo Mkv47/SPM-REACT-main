@@ -6,7 +6,7 @@ const FacultySecretary = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate('/home');
+    navigate('/Home=Secretary');
   };
 
   return (

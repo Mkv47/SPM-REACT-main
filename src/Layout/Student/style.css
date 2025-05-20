@@ -1,0 +1,466 @@
+#root {
+    display: grid;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    width: 100%;
+    max-height: 80%;
+    gap: 20px;
+}
+
+.table-container button,
+.sideSelector .Announcements-button {
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    height: 40px;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-button {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.toggle-button.flipped {
+  transform: rotate(180deg);
+}
+
+.table-container button:hover,
+.sideSelector .Announcements-button:hover {
+    color: #FFFFFF;
+    background: linear-gradient(90deg, #2c003e, #5b005f);
+}
+
+.tabs {
+    padding: 20px 25px 0 25px;
+    height: 60px;
+}
+
+.tabs button.current,
+.sideSelector .Announcements-button.current,
+.current {
+    background: linear-gradient(90deg, #2c003e, #5b005f);
+    color: white;
+    border: none;
+    cursor: default;
+}
+
+.highlight {
+    color: orange;
+    font-weight: bold;
+}
+
+.confirmed {
+    color: green;
+    font-weight: bold;
+}
+
+.button-red {
+    background-color: #a00000;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.list {
+    padding: 15px;
+    margin: 0 25px 25px 25px;
+    border-radius: 10px;
+    max-height: calc(100% - 25px);
+    display: flex;
+    flex-direction: column;
+    background-color: #ebebed;
+    gap: 5px;
+}
+
+.list::-webkit-scrollbar,
+.scroll-List::-webkit-scrollbar,
+.cards-container::-webkit-scrollbar {
+    display: none;
+}
+
+.Announcements {
+    overflow-y: auto;
+}
+
+.Announcements h3 {
+    margin-bottom: 10px;
+}
+
+.Announcements hr {
+    margin-bottom: 8px;
+    margin-top: 10px;
+}
+
+.Announcements .date {
+    text-align: end;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    padding-right: 10px;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.Announcements .flie {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    text-wrap: auto;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.middle-elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+    margin: 10px 0;
+}
+
+.middle-elements > :last-child {
+    margin-left: 30%;
+}
+
+.dropdown {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.dropdown h3 {
+    margin: 0;
+}
+
+div .NewMessage {
+    background: #1b54d7;
+    color: #FFFFFF;
+    border: none;
+}
+
+.SSSelector {
+    display: flex;
+    justify-content: space-between;
+}
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: white;
+    width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.inputData {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    flex-direction: column;
+    min-width: 100%;
+    min-height: 100%;
+
+}
+
+.inputData label{
+    margin-top: 20px;
+}
+
+
+.inputData .message {
+    max-width: 100%;
+    min-width: 100%;
+    padding: unset;
+    padding: 10px;
+    max-height: 400px;
+    text-align:start;
+}
+
+.inputData input,select{
+    background-color: #ececec;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.dropdown-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submitButton {
+    width: 100%;
+    background: linear-gradient(360deg, #2c003e, #5b005f);
+    color: #FFFFFF;
+    
+}
+.dropdown-header .toggle-button {
+    width: 30px;
+    height: 20px;
+}
+
+.sideSelector {
+    min-height: 53px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.sideSelector::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+}
+
+.sideSelector::-webkit-scrollbar-thumb {
+    background-color: #a8a8a8;
+    border-radius: 10px;
+}
+
+.sideSelector::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.sideSelector .Announcements-button:last-child {
+    margin-right: -10px;
+}
+
+.main-content {
+    height: 100vh;
+    width: 85vw;
+    background-color: #e8ecef;
+    padding: 30px 90px 0 90px;
+    font-family: sans-serif;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 15%;
+    align-items: center;
+    vertical-align: middle;
+    margin-bottom: 30px;
+}
+
+.middle-elements .cancel-attendence {
+    border: none;
+    box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #880100;
+    color: #FFFFFF;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 0;
+    border-radius: 25px;
+    background-color: #d9d9d9;
+    border: 1px solid #d9d9d9;
+    font-size: 16px;
+}
+
+.exam-details-expanded{
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 52px;
+    height: 52px;
+    box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(640px, 1fr));
+    gap: 20px;
+    overflow: auto;
+    max-height: 90%;
+}
+
+.course-card {
+    background-color: white;
+    border-radius: 45px;
+    padding: 45px;
+    display: flex;
+    font-weight: bold;
+    flex-direction: column;
+    column-gap: 10px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-header h3 {
+    font-weight: bolder;
+}
+
+.grade-box {
+    color: #FFFFFF;
+    width: 120px;
+    height: 120px;
+    font-weight: bold;
+    box-shadow: gray 2px 2px 5px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-align: center;
+    align-content: center;
+    font-size: 24px;
+}
+
+.grade-box.FF,
+.grade-box.FD { background-color: #ce0000; }
+
+.grade-box.DD,
+.grade-box.DC { background-color: #f37b00; }
+
+.grade-box.CC,
+.grade-box.CB,
+.grade-box.BB,
+.grade-box.BA,
+.grade-box.AA { background-color: #149600; }
+
+strong.FF,.FD { color: #6b0a04; }
+strong.DD,.DC { color: #fb8c00; }
+strong.CC,.CB,.BB,.BA,.AA { color: #6f3f55; }
+
+.resit-status {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 15px 0;
+}
+
+.resit-status a {
+    margin-left: 42%;
+}
+
+.card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 100%;
+    gap: 20px;
+}
+
+.btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 500px;
+    height: 100%;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn.dark {
+    background: linear-gradient(90deg, #2c003e, #5b005f);
+    color: white;
+}
+
+.btn.outlined {
+    border: 2px solid #5b005f;
+    background: none;
+    color: #5b005f;
+}
+
+.message .reply {
+    align-self: flex-end;
+    background-color: #1d53d9;
+    border: none;
+    color: #FFFFFF;
+    width: 60px;
+    font-size: 14px;
+    text-align: center;
+    padding: unset;
+    height: 30px;
+    margin: unset;
+}
+
+.dropform {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.dropform div{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropform textarea{
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 30px;
+    height: 130px;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+    border: #000000;
+}
+
+.dropform input{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #d9d9d9;
+    
+}
+
+.icon-button {
+    background: #660808;
+    border: none;
+    border-radius: 10px;
+    width: 70px;
+    height: 100%;
+    font-size: 20px;
+    font-weight: lighter;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.exam-details {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #3366cc;
+    font-size: 14px;
+    text-decoration: none;
+}
