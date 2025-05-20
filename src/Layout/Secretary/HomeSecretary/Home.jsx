@@ -1,12 +1,16 @@
 import React from 'react'
 import RowOfTable from './RowOfTable'
+import { Link } from 'react-router-dom';
 import InfoCard from './InfoCard' 
 import { useState,useEffect } from "react";
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Logo from '../../Z/22405fa43d89aeb0ddf96d741a2776df38abbdfe.png'
+import LogoOut from '../../Z/image.png'
 import './Home.css'
+import '../../Z/Sidenav.css'
 import axios from 'axios';
 import SearchBar from '../../../Btns/SearchBar';
-
+import { exportToExcel, exportToPDF } from './exportUtils';
 
 
 export default function Home() {
@@ -42,7 +46,6 @@ export default function Home() {
       console.error('Error fetching data:', error);
     }) ;
   }
-
    function splitDateTime(isoString) {
     const [date, timeWithZ] = isoString.split('T');
     const time = timeWithZ.replace('Z', '');
@@ -59,7 +62,7 @@ export default function Home() {
           }
         })
         .then(() => {
-          GetFunc(); // Refresh the data after deletion
+          GetFunc();
         })
         .catch(error => {
           console.error(`Error deleting data for id ${id}:`, error);
@@ -105,132 +108,167 @@ export default function Home() {
 
   return (
     <>
-
-      <div className="InfoCardsContiner">
-        <InfoCard link="/courses" title="All courses" number="23"/>
-        <InfoCard link="/courses/AnnouncedCourses" title="unannounsed Courses" number="1"/>
-        <InfoCard link="/courses/UnannouncedCourses" title="All Depertment" number="15"/>
-      </div>
-
-    
-    <section className="theList">
-      <nav className="ControlOfTheList">
-        <button className="btn btn-secondary rounded-1">
-          <i className="bi bi-filetype-pdf"></i>
-          Export as Pdf
-        </button>
-        <button className="btn btn-secondary rounded-1">
-          <i className="bi bi-filetype-xlsx"></i>
-          Export as Exel
-        </button>
-        <button onClick={()=>DeleteFunc()} className="btn btn-danger rounded-1">
-          <i className="bi bi-trash-fill me-2"></i>
-          Delete
-        </button>
-        <button style={{marginLeft:"10%"}} className="btn btn-secondary rounded-1">
-          <i className="bi bi-filter"></i>
-          Filter
-        </button>
-        {/* <div className="searchbar">
-          <input type="search" />
-          <i className="bi bi-search"></i>
-        </div> */}
-        <SearchBar List={coursesListData} onSearchResult={setOnSearchResult}/>
-
-        <button style={{backgroundColor:'#090029'}} className="btn btn-secondary rounded-1">
-        <i className="bi bi-upload"></i>
-          Upload file
-        </button>
-        <button style={{backgroundColor:'#2b1e1b'}} type='button'  onClick={()=>setAddmanualyopener(true)} className="btn btn-secondary rounded-1">
-        <i className="bi bi-pencil-square"></i>
-          Add Manulay
-        </button>
-      </nav>
-
-      <div className="Thetable" id="Thetable">
-        {/*       <div className="Thetable" id="Thetable">
-          {(onSearchResult || coursesListData).map((item) => (
-            <RowOfTable
-              key={`${item.id}-${item.resitExamId}`}
-              CourseId={item.id}
-              courseName={item.name}
-              courseInstructor={item.instructor}
-              ExamDate={(() => {
-                const examDate = resitExamIdList.find((resit) => resit.id === item.resitExamId)?.examDate || 'N/A';
-                if (examDate !== 'N/A') {
-                  const { date, time } = splitDateTime(examDate);
-                  return { date, time };
-                }
-                return { date: 'N/A', time: 'N/A' };
-              })()}
-              sendSplitDateTime={(dateTime) => console.log('Received split date and time:', dateTime)} // Example of sending back the result
-              courseRoom={"N/A"} // Assuming no room is given; replace as needed
-              selectedIds={selectedIds}
-              handleCheckboxChange={handleCheckboxChange}
-            />
-          ))}
+      <nav id="Sidenav" className="Sidenav sidebar">
+        <div className="upperOfSideNav">
+          <img src={Logo} className="iconOfScool" alt="School Icon" />
+          <p>RexEdu</p>
         </div>
-            const examDate = resitExamIdList.find(resit => resit.id === item.resitExamId)?.examDate || 'N/A';
-            if (examDate !== 'N/A') {
-              const { date, time } = splitDateTime(examDate);
-              return { date, time };
-            }
-            return { date: 'N/A', time: 'N/A' };
-            })()}
-            sendSplitDateTime={(dateTime) => console.log('Received split date and time:', dateTime)} // Example of sending back the result
-           // Assuming resitExamIdList has a time property
-          courseRoom={"N/A"} // Assuming no room is given; replace as needed
-          selectedIds={selectedIds}
-          handleCheckboxChange={handleCheckboxChange}
-        />
-      ))}
+        <ul>
+        <Link to="/Home=Secretary">
+          <li>
+            <i className="bi bi-grid-fill"></i>
+            <a>Home</a>
+          </li>
+        </Link>
+        <Link to="/Home=Secretary">
+          <li>
+            <i className="bi bi-grid-fill"></i>
+            <a>Courses</a>
+          </li>
+        </Link>
+        <Link to="/Home=Secretary">
+          <li>
+            <i className="bi bi-grid-fill"></i>
+            <a>Departments</a>
+          </li>
+        </Link>
+      </ul>
+      <div className="logoutdiv">
+        <Link to="/">
+          <img src={LogoOut} alt="Logout Icon" />
+          <p style={{ margin: 0 }}>log out</p>
+        </Link>
+    </div>
+  </nav>
 
-      </div> */}
-      {(Array.isArray(onSearchResult) && onSearchResult.length > 0 ? onSearchResult : coursesListData).map((item) => (
-        <RowOfTable
-          key={`${item.id}-${item.resitExamId}`}
-          CourseId={item.id}
-          courseName={item.name}
-            courseInstructor={item.instructor}
-            ExamDate={(() => {
-            const examDate = resitExamIdList.find(resit => resit.id === item.resitExamId)?.examDate || 'N/A';
-            if (examDate !== 'N/A') {
-              const { date, time } = splitDateTime(examDate);
-              return { date, time };
-            }
-            return { date: 'N/A', time: 'N/A' };
-            })()}
-            sendSplitDateTime={(dateTime) => console.log('Received split date and time:', dateTime)} // Example of sending back the result
-           // Assuming resitExamIdList has a time property
-          courseRoom={"N/A"} // Assuming no room is given; replace as needed
-          selectedIds={selectedIds}
-          handleCheckboxChange={handleCheckboxChange}
-        />
-      ))}
+      <div class="main-container">
+        <div className="InfoCardsContiner">
+          <InfoCard link="/courses/AnnouncedCourses" title="unannounsed Courses" number="1"/>
+          <InfoCard link="/courses" title="All courses" number="23"/>
+          <InfoCard link="/courses/UnannouncedCourses" title="All Depertment" number="15"/>
+        </div>
+        <section className="theList">
+          <nav className="ControlOfTheList">
+            <div>
+              <button className="btn btn-secondary rounded-1" onClick={exportToPDF}>
+                <i className="bi bi-filetype-pdf"></i>
+                Export as Pdf
+              </button>
+              <button className="btn btn-secondary rounded-1" onClick={exportToExcel}>
+                <i className="bi bi-filetype-xlsx"></i>
+                Export as Exel
+              </button>
+            </div>
+            
+            <div>
+              <button onClick={()=>DeleteFunc()} className="btn btn-danger rounded-1">
+                <i className="bi bi-trash-fill me-2"></i>
+                Delete
+              </button>
+              <button  className="btn btn-secondary rounded-1">
+                <i className="bi bi-filter"></i>
+                Filter
+              </button>
+              <SearchBar List={coursesListData} onSearchResult={setOnSearchResult}/>
 
+              <button className="btn btn-secondary rounded-1">
+              <i className="bi bi-upload"></i>
+                Upload file
+              </button>
+              <button type='button'  onClick={()=>setAddmanualyopener(true)} className="btn btn-secondary rounded-1">
+              <i className="bi bi-pencil-square"></i>
+                Add Manulay
+              </button>
+            </div>
+          </nav>
+
+          <div className="Thetable" id="Thetable">
+            <p>
+              <div>
+                <input type="checkbox" />
+                <strong>Course Code</strong>
+                <strong>Course Name</strong>
+              </div>
+              <div>
+                <strong>Course Instructor</strong>
+              </div>
+              <div>
+                <strong>Date</strong>
+                <strong>Time</strong>
+                <strong>Classroom</strong>
+              </div>
+            </p>
+            <div class="inner-List">
+              <p class="element">
+               <div>
+                 <input type="checkbox" />
+                 <strong>SE408</strong>
+                 <strong>Software Project Management</strong>
+               </div>
+               <div>
+                 <strong>Kristein</strong>
+               </div>
+               <div>
+                 <strong>2025-05-22</strong>
+                 <strong>11:40</strong>
+                 <strong>A308</strong>
+               </div>
+              </p>
+              <p class="element">
+               <div>
+                 <input type="checkbox" />
+                 <strong>SE408</strong>
+                 <strong>Software Project Management</strong>
+               </div>
+               <div>
+                 <strong>Kristein</strong>
+               </div>
+               <div>
+                 <strong>2025-05-22</strong>
+                 <strong>11:40</strong>
+                 <strong>A308</strong>
+               </div>
+              </p>
+              <p class="element">
+               <div>
+                 <input type="checkbox" />
+                 <strong>SE408</strong>
+                 <strong>Software Project Management</strong>
+               </div>
+               <div>
+                 <strong>Kristein</strong>
+               </div>
+               <div>
+                 <strong>2025-05-22</strong>
+                 <strong>11:40</strong>
+                 <strong>A308</strong>
+               </div>
+              </p>
+            </div>
+          </div>
+
+          <form className={`AddManulay ${Addmanualyopener ? 'isgrid' : 'isnone'}`} id="AddManulay" method="post" action="" hidden>
+            <h6> Add an new item</h6>
+            <label htmlFor="CourseCode">Course Code</label>
+            <input type='text' value={CourseCode} onChange={(e)=>setCourseCode(e.target.value)} id='CourseCode' name='CourseCode' />
+            <label htmlFor="CourseName">Course Name</label>
+            <input type='text' value={CourseName} onChange={(e)=>setCourseName(e.target.value)} id='CourseName' name='CourseName' />
+            <label htmlFor="Lecture">Lecture</label>
+            <input type='text' value={Instructor} onChange={(e)=>setInstructor(e.target.value)} id='Lecture' name='Lecture' />
+            <label htmlFor="Date">Date</label>
+            <input type='text'  id='Date' name='Date' />
+            <label htmlFor="Time">Time</label>
+            <input type='text'  id='Time' name='Time' />
+            <label htmlFor="ClassRoom">Class Room</label>
+            <input type='text'  id='ClassRoom' name='ClassRoom' />
+            <label htmlFor="Department">Department</label>
+            <input type='text' value={Department} onChange={(e)=>setDepartment(e.target.value)} id='Department' name='Department' />
+            <button type='button' onClick={()=>setAddmanualyopener(false)}>Cancel</button> 
+            <button>Next </button>
+             <button style={{gridColumn:' span 4',backgroundColor:'green',width:'100%'}} onClick={(e)=>{e.preventDefault() ;FuncPost();setAddmanualyopener(false)}} type='submit'>save </button>
+          </form>
+        </section>
       </div>
-
-      <form className={`AddManulay ${Addmanualyopener ? 'isgrid' : 'isnone'}`} id="AddManulay" method="post" action="">
-        <h6> Add an new item</h6>
-        <label htmlFor="CourseCode">Course Code</label>
-        <input type='text' value={CourseCode} onChange={(e)=>setCourseCode(e.target.value)} id='CourseCode' name='CourseCode' />
-        <label htmlFor="CourseName">Course Name</label>
-        <input type='text' value={CourseName} onChange={(e)=>setCourseName(e.target.value)} id='CourseName' name='CourseName' />
-        <label htmlFor="Lecture">Lecture</label>
-        <input type='text' value={Instructor} onChange={(e)=>setInstructor(e.target.value)} id='Lecture' name='Lecture' />
-        <label htmlFor="Date">Date</label>
-        <input type='text'  id='Date' name='Date' />
-        <label htmlFor="Time">Time</label>
-        <input type='text'  id='Time' name='Time' />
-        <label htmlFor="ClassRoom">Class Room</label>
-        <input type='text'  id='ClassRoom' name='ClassRoom' />
-        <label htmlFor="Department">Department</label>
-        <input type='text' value={Department} onChange={(e)=>setDepartment(e.target.value)} id='Department' name='Department' />
-        <button type='button' onClick={()=>setAddmanualyopener(false)}>Cancel</button> 
-        <button>Next </button>
-         <button style={{gridColumn:' span 4',backgroundColor:'green',width:'100%'}} onClick={(e)=>{e.preventDefault() ;FuncPost();setAddmanualyopener(false)}} type='submit'>save </button>
-      </form>
-    </section>
     </>
-  )
-}
+  ) 
+} 

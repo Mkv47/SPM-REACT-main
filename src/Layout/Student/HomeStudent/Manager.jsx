@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../script'
 import '../style.css';
 
 const examData = [
@@ -200,8 +201,6 @@ const examData = [
     rooms: ['A-Nermin Tarhan', 'A-Kuleli', 'D-Ayhan Songar'],
     grade: 'FF',
   },
-  
-
 ];
 
 const HomeList = () => {

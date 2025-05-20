@@ -33,7 +33,7 @@ function App() {
         <Route path="/facultysecretary-login" element={<FacultySecretary />} />
 
         {/* Protected Routes - With Layout */}
-          <Route path="/Home-Secretary" element={<Home />} />
+          <Route path="/Home=Secretary" element={<Home />} />
           <Route path="/courses" element={<Courses />}>
             <Route index element={<All />} />
             {/* <Route path='/All' element={<All />} /> */}
