@@ -133,7 +133,7 @@ export default function Home() {
         </button>
 
         <SearchBar List={coursesListData} setOnSearchResult={setOnSearchResult}/>
-
+ 
         <button style={{backgroundColor:'#090029'}} className="btn btn-secondary rounded-1">
         <i className="bi bi-upload"></i>
           Upload file
