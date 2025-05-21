@@ -116,19 +116,19 @@ export default function Home() {
         <Link to="/Home=Secretary">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Home</a>
+            <p>Home</p>
           </li>
         </Link>
         <Link to="/courses">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Courses</a>
+            <p>Courses</p>
           </li>
         </Link>
-        <Link to="/Home=Secretary">
+        <Link to="/departments">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Departments</a>
+            <p>Departments</p>
           </li>
         </Link>
       </ul>
