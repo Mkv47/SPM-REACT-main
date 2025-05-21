@@ -1,16 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Layout & main pages
-import Home from './Layout/Secretary/HomeSecretary/Home';
-import Home_St from './Layout/Student/HomeStudent/HomeStudent';
+import HomeStudent from './Layout/Student/HomeStudent/HomeStudent';
 import ExamDetails from './Layout/Student/ExamDetails/ExamDetails';
-import Announcements from './Layout/Student/Announcements/Announcements';
 import Messages from './Layout/Student/Messages/Messages';
+import Announcements from './Layout/Student/Announcements/Announcements';
+
+import HomeSecretary from './Layout/Secretary/HomeSecretary/Home';
 import Courses from './Layout/Secretary/Courses/Courses';
 import All from './Layout/Secretary/Courses/All';
+import Departments from './Layout/Secretary/Departments/Departments';
 import AnnouncedCourses from './Layout/Secretary/Courses/AnnouncedCourses';
 import UnannouncedCourses from './Layout/Secretary/Courses/UnannouncedCourses';
-import Departments from './Layout/Secretary/Departments/Departments';
+
 import HomeInstructor from './Layout/Instructor/HomeInstructor/HomeInstructor';
 
 // Login pages (outside layout)
@@ -33,7 +35,7 @@ function App() {
         <Route path="/facultysecretary-login" element={<FacultySecretary />} />
 
         {/* Protected Routes - With Layout */}
-          <Route path="/Home=Secretary" element={<Home />} />
+          <Route path="/Home=Secretary" element={<HomeSecretary />} />
           <Route path="/courses" element={<Courses />}>
             <Route index element={<All />} />
             {/* <Route path='/All' element={<All />} /> */}
@@ -42,7 +44,7 @@ function App() {
           </Route>
           <Route path="/departments" element={<Departments />} />
 
-          <Route path="/Home=Student" element={<Home_St />} />
+          <Route path="/Home=Student" element={<HomeStudent />} />
           <Route path="/Details" element={<ExamDetails />} />
           <Route path="/Announcements" element={<Announcements />} />
           <Route path="/Messages" element={<Messages />}>
