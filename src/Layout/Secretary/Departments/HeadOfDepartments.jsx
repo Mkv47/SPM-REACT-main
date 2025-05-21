@@ -11,7 +11,7 @@ function HeadOfDepartments() {
     <div className='HeadOfDepartments'>
         <h3 style={{fontFamily:'fantasy'}}>Faculty</h3>
         <div className='HeadOfDepartmentsBtns'>
-           <SearchBar List={coursesListData} onSearchResult={setOnSearchResult}/>
+           <SearchBar List={coursesListData} setOnSearchResult={setOnSearchResult}/>
           <button class="btn btn-secondary rounded-2">
                <i class="bi bi-pencil"></i>
               <p> Add new department</p>

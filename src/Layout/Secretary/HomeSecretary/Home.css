@@ -115,7 +115,8 @@
    grid-template-columns: repeat(4,1fr);
    grid-template-rows:  repeat(10,1fr);
    position: absolute;
-   width: 60%;
+   width: 50%;
+   height: 60%;
    background-color: #fdfcfc;
    color: #000;
    border-radius: 10px;
@@ -145,8 +146,9 @@
   .listOfHomesecertetary .AddManulay button{
    grid-column: span 2;
    grid-row: span 1;
-   width: 80%;
 
+       height: 60%;
+    width: 80%;
    background-color: red;
    border-radius: 5px;
    border: solid 0px red;
