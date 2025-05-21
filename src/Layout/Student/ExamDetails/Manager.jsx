@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import down from '../../Z/down.svg'
 import up from '../../Z/down.svg'
 import '../style.css';
+import { useEffect } from 'react';
+import { GetResitExamList, GetCourseDetails,GetexamData } from './FunctionsOfExamDetails';
 
 const examData = [
   {
@@ -55,8 +57,21 @@ const examData = [
     rooms: ['A-Nermin Tarhan', 'A-Kuleli', 'D-Ayhan Songar']
   }
 ];
+ 
+
 
 const ExamList = () => {
+  const [examDatag, setExamDatag] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await GetexamData('20209958');
+      setExamDatag(data);
+    }
+    fetchData();
+  }, []);
+  
+  console.log(examDatag)
   const [hiddenItems, setHiddenItems] = useState(() => {
     const initial = {};
     examData.forEach(exam => {
@@ -102,6 +117,7 @@ const ExamList = () => {
             </div>
             <p>Date: {exam.date} &nbsp;&nbsp; Time: {exam.time}</p>
             <p>Classrooms: {exam.rooms.join(', ')}</p>
+               {/* <p>Classrooms: {exam.rooms}</p> */}
           </div>
         </div>
       ))}

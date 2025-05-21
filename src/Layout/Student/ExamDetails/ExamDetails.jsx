@@ -32,76 +32,7 @@ export default function Home() {
     }
 
   };
-  const GetFunc=()=>{
-    axios.get('http://localhost:3000/secretary/courses')
-    .then(response => {
-      // console.log(response.data)
-      setCoursesListData(response.data);
-      GetResitIdFunc();
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    }) ;
-  }
-
-   function splitDateTime(isoString) {
-    const [date, timeWithZ] = isoString.split('T');
-    const time = timeWithZ.replace('Z', '');
-    return { date, time };
-  }
-
-  const DeleteFunc=()=>{
-    selectedIds.forEach((id) => {
-      console.log(id)
-      if (id) { 
-        axios.delete(`http://localhost:3000/course/${id}`, {
-          data: {
-            secretaryId: 'sec-001'
-          }
-        })
-        .then(() => {
-          GetFunc(); // Refresh the data after deletion
-        })
-        .catch(error => {
-          console.error(`Error deleting data for id ${id}:`, error);
-        });
-      } else {
-        console.error('Invalid id detected:', id);
-      }
-    });
-    setSelectedIds([]);
-  }
-
-  const FuncPost=()=>{
-    axios.post('http://localhost:3000/course', {
-      courseId :CourseCode,
-      name: CourseName,
-      resitExamId: CourseCode,
-      department: Department,
-      instructor: Instructor,
-      secretaryId: "sec-001",
-    })
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
-  }
-  const GetResitIdFunc=()=>{
-    axios.get('http://localhost:3000/secretary/resit-exams')
-    .then(response => {
-      // console.log(response.data)
-      setResitExamIdList(response.data);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    }) ;
-  }
-  useEffect(() => {   // Fetch data when the component mounts
-    GetFunc();
-  }, []);
-   
+ 
 
 
   return (
@@ -115,25 +46,25 @@ export default function Home() {
         <Link to = "/Home=Student">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Home</a>
+            <p>Home</p>
           </li>
         </Link>
         <Link to = "/Details">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Exam Details</a>
+            <p>Exam Details</p>
           </li>
         </Link>
         <Link to = "/Announcements">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Announcements</a>
+            <p>Announcements</p>
           </li>
         </Link>
         <Link to = "/Messages">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Messages</a>
+            <p>Messages</p>
           </li>
         </Link>
       </ul>
@@ -151,8 +82,8 @@ export default function Home() {
         <img src={pPic} alt="Profile" className="profile-pic" />
       </div>
         <div className="table-container">
-          <div class="tabs">
-            <button class="current">Exam Details</button>
+          <div className="tabs">
+            <button className="current">Exam Details</button>
             <Link to="/Announcements">
               <button>Announcements</button>
             </Link>
@@ -160,7 +91,7 @@ export default function Home() {
             <button>My Messages</button>
             </Link>
           </div>
-          <div class="list">
+          <div className="list">
 
             <ExamList />
 

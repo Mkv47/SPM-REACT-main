@@ -10,7 +10,7 @@ import './Home.css'
 import '../../Z/Sidenav.css'
 import axios from 'axios';
 import SearchBar from '../../../Btns/SearchBar';
-import { exportToExcel, exportToPDF } from './exportUtils';
+// import { exportToExcel, exportToPDF } from './exportUtils';
 
 
 export default function Home() {
@@ -22,6 +22,9 @@ export default function Home() {
   const [CourseName, setCourseName] = useState('');
   const [Department, setDepartment] = useState('');
   const [Instructor, setInstructor] = useState('');
+      const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
+    const [ClassRoom, setClassRoom] = useState('');
   const [onSearchResult, setOnSearchResult] = useState('');
   const handleCheckboxChange = (event) => {
     const id = event.target.value;
@@ -117,19 +120,19 @@ export default function Home() {
         <Link to="/Home=Secretary">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Home</a>
+            <p>Home</p>
           </li>
         </Link>
         <Link to="/Home=Secretary">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Courses</a>
+            <p>Courses</p>
           </li>
         </Link>
         <Link to="/Home=Secretary">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Departments</a>
+            <p>Departments</p>
           </li>
         </Link>
       </ul>
@@ -141,7 +144,7 @@ export default function Home() {
     </div>
   </nav>
 
-      <div class="main-container">
+      <div className="main-container">
       <div className="InfoCardsContiner">
         <InfoCard link="/courses" title="All courses" number="23"/>
         <InfoCard link="/courses/AnnouncedCourses" title="unannounsed Courses" number="1"/>
@@ -149,7 +152,7 @@ export default function Home() {
       </div>
 
     
-    <section className="theList">
+    <section className="theList listOfHomesecertetary">
       <nav className="ControlOfTheList">
         <button className="btn btn-secondary rounded-1">
           <i className="bi bi-filetype-pdf"></i>
@@ -167,11 +170,8 @@ export default function Home() {
           <i className="bi bi-filter"></i>
           Filter
         </button>
-        {/* <div className="searchbar">
-          <input type="search" />
-          <i className="bi bi-search"></i>
-        </div> */}
-        <SearchBar List={coursesListData} onSearchResult={setOnSearchResult}/>
+
+        <SearchBar List={coursesListData} setOnSearchResult={setOnSearchResult}/>
 
         <button style={{backgroundColor:'#090029'}} className="btn btn-secondary rounded-1">
         <i className="bi bi-upload"></i>
@@ -206,7 +206,37 @@ export default function Home() {
         />
       ))}
 
-            {/* <p>
+     
+          </div>
+
+      <form className={`AddManulay ${Addmanualyopener ? 'isgrid' : 'isnone'}`} id="AddManulay" method="post" action="">
+        <h6> Add an new item</h6>
+        <label htmlFor="CourseCode">Course Code</label>
+        <input type='text' value={CourseCode} onChange={(e)=>setCourseCode(e.target.value)} id='CourseCode' name='CourseCode' />
+        <label htmlFor="CourseName">Course Name</label>
+        <input type='text' value={CourseName} onChange={(e)=>setCourseName(e.target.value)} id='CourseName' name='CourseName' />
+        <label htmlFor="Lecture">Lecture</label>
+        <input type='text' value={Instructor} onChange={(e)=>setInstructor(e.target.value)} id='Lecture' name='Lecture' />
+        <label htmlFor="Date">Date</label>
+        <input type='date'  value={date} onChange={(e)=>setDate(e.target.value)}  id='Date' name='Date' />
+        <label htmlFor="Time">Time</label>
+        <input type='time' value={time} onChange={(e)=>setTime(e.target.value)}  id='Time' name='Time' />
+        <label htmlFor="ClassRoom">Class Room</label>
+        <input type='text'  value={ClassRoom} onChange={(e)=>setClassRoom(e.target.value)}   id='ClassRoom' name='ClassRoom' />
+        <label htmlFor="Department">Department</label>
+        <input type='text' value={Department} onChange={(e)=>setDepartment(e.target.value)} id='Department' name='Department' />
+        <button type='button' onClick={()=>setAddmanualyopener(false)}>Cancel</button> 
+        <button>Next </button>
+         <button style={{gridColumn:' span 4',backgroundColor:'green',width:'100%'}} onClick={(e)=>{e.preventDefault() ;FuncPost();setAddmanualyopener(false)}} type='submit'>save </button>
+      </form>
+        </section>
+      </div>
+    </>
+  ) 
+} 
+
+
+       {/* <p>
               <div>
                 <input type="checkbox" />
                 <strong>Course Code</strong>
@@ -221,8 +251,8 @@ export default function Home() {
                 <strong>Classroom</strong>
               </div>
             </p>
-            <div class="inner-List">
-              <p class="element">
+            <div className="inner-List">
+              <p className="element">
                <div>
                  <input type="checkbox" />
                  <strong>SE408</strong>
@@ -237,7 +267,7 @@ export default function Home() {
                  <strong>A308</strong>
                </div>
               </p>
-              <p class="element">
+              <p className="element">
                <div>
                  <input type="checkbox" />
                  <strong>SE408</strong>
@@ -252,7 +282,7 @@ export default function Home() {
                  <strong>A308</strong>
                </div>
               </p>
-              <p class="element">
+              <p className="element">
                <div>
                  <input type="checkbox" />
                  <strong>SE408</strong>
@@ -268,30 +298,3 @@ export default function Home() {
                </div>
               </p>
             </div> */}
-          </div>
-
-          <form className={`AddManulay ${Addmanualyopener ? 'isgrid' : 'isnone'}`} id="AddManulay" method="post" action="" hidden>
-            <h6> Add an new item</h6>
-            <label htmlFor="CourseCode">Course Code</label>
-            <input type='text' value={CourseCode} onChange={(e)=>setCourseCode(e.target.value)} id='CourseCode' name='CourseCode' />
-            <label htmlFor="CourseName">Course Name</label>
-            <input type='text' value={CourseName} onChange={(e)=>setCourseName(e.target.value)} id='CourseName' name='CourseName' />
-            <label htmlFor="Lecture">Lecture</label>
-            <input type='text' value={Instructor} onChange={(e)=>setInstructor(e.target.value)} id='Lecture' name='Lecture' />
-            <label htmlFor="Date">Date</label>
-            <input type='text'  id='Date' name='Date' />
-            <label htmlFor="Time">Time</label>
-            <input type='text'  id='Time' name='Time' />
-            <label htmlFor="ClassRoom">Class Room</label>
-            <input type='text'  id='ClassRoom' name='ClassRoom' />
-            <label htmlFor="Department">Department</label>
-            <input type='text' value={Department} onChange={(e)=>setDepartment(e.target.value)} id='Department' name='Department' />
-            <button type='button' onClick={()=>setAddmanualyopener(false)}>Cancel</button> 
-            <button>Next </button>
-             <button style={{gridColumn:' span 4',backgroundColor:'green',width:'100%'}} onClick={(e)=>{e.preventDefault() ;FuncPost();setAddmanualyopener(false)}} type='submit'>save </button>
-          </form>
-        </section>
-      </div>
-    </>
-  ) 
-} 

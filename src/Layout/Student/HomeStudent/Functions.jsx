@@ -49,9 +49,16 @@ async function GetResitExamList(id) {
  * @returns {Promise<Array>} The course details.
  */
 
+
+
+
+
 async function GetCourseDetails(id) {
+    // Ensure id is a primitive value, not an object
+    let std = typeof id === 'object' && id !== null ? id.id : id;
+    console.log(std);
     try {
-        const response = await axios.get(`http://localhost:3000/student/c-details/${id}`);
+        const response = await axios.get(`http://localhost:3000/student/c-details/${std}`);
         return response.data;
     } catch (error) {
         console.error('Error fetching data:', error);
