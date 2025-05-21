@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import '../Layout/Secretary/Courses/Courses.css'
-import '../LetterGrades/LetterGrades.jsx'
+import '../../Secretary/Courses/Courses.css'
+import './LetterGrades.jsx'
 function Box(props) {
 
 

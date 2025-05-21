@@ -2,9 +2,7 @@ import React from 'react'
 import RowOfTable from './RowOfTable'
 import { useState } from 'react'
 const Items = [
-    { CourseId: '1',Name:'mohamed', CourseCode: 'Item 1',Grade:'54',Letter:'GG', },
-    { CourseId: '2',Name:'ahmed', CourseCode: 'Item 2',Grade:'25',Letter:'GG', },
-    { CourseId: '3', Name:'omer',CourseCode: 'Item 3',Grade:'78',Letter:'GG',},
+
   ]
 function AnnounceNewLetterGrade() {
          const [selectedIds, setSelectedIds] = useState([]);

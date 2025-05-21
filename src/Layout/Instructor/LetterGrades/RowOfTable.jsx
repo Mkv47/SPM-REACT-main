@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Layout/Secretary/HomeSecretary/Home.css'
+import '../../Secretary/HomeSecretary/Home.css'
 import './RowOfTable.css'
 function RowOfTable(props) {
   return (

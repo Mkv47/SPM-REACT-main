@@ -1,20 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import InfoCard from './InfoCard';
-import Lesson from './Lesson';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import './HomeIstructor.css'
+import React from 'react'
+import { useState } from 'react'
+import { Outlet , Link } from 'react-router-dom'
+import Box from './Box'
 import Logo from '../../Z/22405fa43d89aeb0ddf96d741a2776df38abbdfe.png';
 import LogoOut from '../../Z/image.png';
 import pPic from '../../Z/149935571.jpg';
 import '../../Z/Sidenav.css';
-import SearchBar from '../../../Btns/SearchBar';
-import ExamList from './Manager';
+import './LetterGrades.css'
 
+const Items = [
+    { CourseId: '1',Name:'mohamed', CourseCode: 'Item 1',Grade:'54',Letter:'GG', },
+    { CourseId: '2',Name:'ahmed', CourseCode: 'Item 2',Grade:'25',Letter:'GG', },
+    { CourseId: '3', Name:'omer',CourseCode: 'Item 3',Grade:'78',Letter:'GG',},
+  ]
+export default function LetterGrades() {
 
-export default function Home() {
   return (
-    <>
+        <>
+  
       <nav id="Sidenav" className="Sidenav sidebar">
         <div className="upperOfSideNav">
           <img src={Logo} className="iconOfScool" alt="School Icon" />
@@ -60,17 +63,20 @@ export default function Home() {
           <img src={pPic} alt="Profile" className="profile-pic" />
         </div>
 
-        <div className="InfoCardsContiner">
-          <InfoCard link="/courses/AnnouncedCourses" title="unannounsed Courses" number="1"/>
-          <InfoCard link="/courses" title="All courses" number="23"/>
-          <InfoCard link="/courses/UnannouncedCourses" title="All Depertment" number="15"/>
-        </div>
-        <section className="theList">
-          <div className="min-List-Container">
-              <ExamList />
+        <section className='LetterGrades'>
+          <div className='BtnContainer'>
+            <Box link='./' text='announce letter grade'/>
+            <Box link='./announcenewlettergrade' text='announce new letter grade'/>
           </div>
+            <section className='InnerLetterGrades'>
+            <div className='InnerBtnContainer'>
+              <button>Upload File</button>
+              <button>Announce Manually</button>
+            </div>
+            <Outlet/>
+            </section>
         </section>
-      </div>
+    </div>
     </>
-  ) 
-} 
+    )
+}

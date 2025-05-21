@@ -1,10 +1,13 @@
 import React from 'react';
-import '../Login/instructor.css'; // Optional for your styles
+import './instructor.css';
+import { useNavigate } from 'react-router-dom';
 
 const ResitExamEntranceInstructor = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add form logic here (e.g., send to backend, validation, etc.)
+    navigate('/Home=Instructor');
   };
 
   return (

@@ -2,9 +2,7 @@ import React from 'react'
 import RowOfTable from './RowOfTable'
 import { useState } from 'react'
 const Items = [
-    { CourseId: '1',Name:'mohamed', CourseCode: 'Item 1',Grade:'23',Letter:'GG', },
-    { CourseId: '2',Name:'amr', CourseCode: 'Item 2',Grade:'75',Letter:'ER', },
-    { CourseId: '3', Name:'salim',CourseCode: 'Item 3',Grade:'35',Letter:'FF',},
+
   ]
 function AnnounceLetterGrade() {
          const [selectedIds, setSelectedIds] = useState([]);
@@ -22,16 +20,6 @@ function AnnounceLetterGrade() {
         };
   return (
     <div className="Thetable" id="Thetable">
-
-            <div className="rowoftable"  id="rowoftable">
-                <div className="cheakboxclass">
-                    <input type="checkbox"  />
-                    <p>courseCode</p>
-                </div>
-                <p className="courseName">Name</p>
-                <p className="courseInstructor">Grade</p>
-                <p className="ClassRooms">Letter</p>
-            </div>
             
         {Items.map((item) => (
           <RowOfTable

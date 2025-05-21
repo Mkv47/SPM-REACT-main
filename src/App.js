@@ -1,29 +1,36 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Layout & main pages
+
+//Student V
 import HomeStudent from './Layout/Student/HomeStudent/HomeStudent';
 import ExamDetails from './Layout/Student/ExamDetails/ExamDetails';
 import Messages from './Layout/Student/Messages/Messages';
 import Announcements from './Layout/Student/Announcements/Announcements';
 
+//Instructor V
+import HomeInstructor from './Layout/Instructor/HomeInstructor/HomeInstructor';
+import Inbox from './Layout/Instructor/Inbox/Messages';
+import Approvals from './Layout/Instructor/Approvals/Approvals';
+import LetterGrades from './Layout/Instructor/LetterGrades/LetterGrades'
+import AnnounceLetterGrade from './Layout/Instructor/LetterGrades/AnnounceLetterGrade';
+import AnnounceNewLetterGrade from './Layout/Instructor/LetterGrades/AnnounceNewLetterGrade';
+
+//Secretary V
 import HomeSecretary from './Layout/Secretary/HomeSecretary/Home';
 import Courses from './Layout/Secretary/Courses/Courses';
 import All from './Layout/Secretary/Courses/All';
-import Departments from './Layout/Secretary/Departments/Departments';
 import AnnouncedCourses from './Layout/Secretary/Courses/AnnouncedCourses';
 import UnannouncedCourses from './Layout/Secretary/Courses/UnannouncedCourses';
-
-import HomeInstructor from './Layout/Instructor/HomeInstructor/HomeInstructor';
+import Departments from './Layout/Secretary/Departments/Departments';
 
 // Login pages (outside layout)
-import FacultySecretary from './Layout/Secretary/Login/FacultySecretary'; // login selection screen
-import StudentLogin from './Layout/Student/Login/StudentLogin';
-import ResitExamEntranceInstructor from './Login/ResitExamEntranceInstructor';
 import ResitExam from './Login/ResitExam';
-import LetterGrades from './LetterGrades/LetterGrades'
-import AnnounceLetterGrade from './LetterGrades/AnnounceLetterGrade';
-import AnnounceNewLetterGrade from './LetterGrades/AnnounceNewLetterGrade';
-import Approvals from './Approvals/Approvals';
+import StudentLogin from './Layout/Student/Login/StudentLogin';
+import ResitExamEntranceInstructor from './Layout/Instructor/Login/ResitExamEntranceInstructor';
+import FacultySecretary from './Layout/Secretary/Login/FacultySecretary';
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -56,12 +63,13 @@ function App() {
           <Route path="/departments" element={<Departments />} />
 
 
-          <Route path="/instructor" element={<HomeInstructor />} />
-          <Route path='/lettergrades' element={<LetterGrades/>} >
-          <Route index element={<AnnounceLetterGrade/>} />
-          <Route path='announcenewlettergrade' element={<AnnounceNewLetterGrade/>} />
+          <Route path="/Home=Instructor" element={<HomeInstructor />} />
+          <Route path="/inbox" element={<Inbox />} />
+          <Route path="/approvals" element={<Approvals />} />
+          <Route path="/lettergrades" element={<LetterGrades />}>
+            <Route index element={<AnnounceLetterGrade />} />
+            <Route path="announcenewlettergrade" element={<AnnounceNewLetterGrade />} />
           </Route>
-          <Route path='/approvals' element={<Approvals/>} />
       </Routes>
     </BrowserRouter>
   );
