@@ -119,7 +119,7 @@ export default function Home() {
             <a>Home</a>
           </li>
         </Link>
-        <Link to="/Home=Secretary">
+        <Link to="/courses">
           <li>
             <i className="bi bi-grid-fill"></i>
             <a>Courses</a>
@@ -141,6 +141,16 @@ export default function Home() {
   </nav>
 
       <div class="main-container">
+        <div className="top-bar-Secretary">
+          <select type="" placeholder="Search" className="search-input">
+            <option>Faculty of Dentistry</option>
+            <option>Faculty of Communication</option>
+            <option>Faculty of Humanities and Social Sciences</option>
+            <option selected>Faculty of Engineering and Natrual Sciences</option>
+            <option>Faculty of Health and Sciences</option>
+            <option>Faculty of Medicn</option>
+          </select>
+        </div>
         <div className="InfoCardsContiner">
           <InfoCard link="/courses/AnnouncedCourses" title="unannounsed Courses" number="1"/>
           <InfoCard link="/courses" title="All courses" number="23"/>

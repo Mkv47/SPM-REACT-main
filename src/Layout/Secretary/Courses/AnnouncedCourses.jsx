@@ -28,15 +28,18 @@ export default function AnnouncedCourses() {
   return (
     <div className="theList theListofcourses right">
       <nav className="ControlOfTheList">
-        <button className="btn btn-danger rounded-2">
-          <i className="bi bi-trash-fill me-2"></i>
-          Delete
-        </button>
-        <button className="btn btn-secondary rounded-2">
-          <i className="bi bi-filter"></i>
-          Filter
-        </button>
-        <SearchBar List={coursesListData} onSearchResult={setOnSearchResult} />
+        <div className="leftInput">
+          <button className="btn btn-danger rounded-1">
+            <i className="bi bi-trash-fill me-2"></i>
+              Button
+          </button>
+          <button className="btn btn-secondary rounded-1">
+            <i className="bi bi-filter"></i>
+            filter
+          </button>
+          <SearchBar List={coursesListData} onSearchResult={setOnSearchResult}/>
+        </div>
+        
         <button
           onClick={() => setAddmanualyopener(true)}
           style={{ backgroundColor: '#0b0631' }}

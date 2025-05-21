@@ -39,15 +39,17 @@ export default function All() {
   return (
     <div className="theList theListofcourses right">
       <nav className="ControlOfTheList">
-        <button className="btn btn-danger rounded-1">
-          <i className="bi bi-trash-fill me-2"></i>
-          Button
-        </button>
-        <button style={{ width: '10%' }} className="btn btn-secondary rounded-1">
-          <i className="bi bi-filter"></i>
-          filter
-        </button>
-        <SearchBar List={coursesListData} onSearchResult={setOnSearchResult}/>
+        <div className="leftInput">
+          <button className="btn btn-danger rounded-1">
+            <i className="bi bi-trash-fill me-2"></i>
+              Button
+          </button>
+          <button className="btn btn-secondary rounded-1">
+            <i className="bi bi-filter"></i>
+            filter
+          </button>
+          <SearchBar List={coursesListData} onSearchResult={setOnSearchResult}/>
+        </div>
 
         <button
           onClick={() => setAddmanualyopener(true)}
@@ -67,7 +69,7 @@ export default function All() {
               <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
             </svg>
           </div>
-          <span className="text-white">Add new course</span>
+          <span className="text-white">Add New Course</span>
         </button>
       </nav>
       <div className="Thetable Thetableofcourses" id="Thetable">

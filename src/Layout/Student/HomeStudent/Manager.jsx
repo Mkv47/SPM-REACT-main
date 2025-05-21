@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../script'
 import '../style.css';
 
 const examData = [
