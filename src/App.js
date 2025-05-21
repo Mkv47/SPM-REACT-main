@@ -14,7 +14,7 @@ import Departments from './Layout/Secretary/Departments/Departments';
 import HomeInstructor from './Layout/Instructor/HomeInstructor/HomeInstructor';
 
 // Login pages (outside layout)
-import FacultySecretary from './Login/FacultySecretary'; // login selection screen
+import FacultySecretary from './Layout/Secretary/Login/FacultySecretary'; // login selection screen
 import StudentLogin from './Layout/Student/Login/StudentLogin';
 import ResitExamEntranceInstructor from './Login/ResitExamEntranceInstructor';
 import ResitExam from './Login/ResitExam';

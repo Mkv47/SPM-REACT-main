@@ -11,6 +11,7 @@ import '../../Z/Sidenav.css'
 import axios from 'axios';
 import SearchBar from '../../../Btns/SearchBar';
 import { exportToExcel, exportToPDF } from './exportUtils';
+import pPic from '../../Z/149935571.jpg';
 
 
 export default function Home() {
@@ -148,9 +149,11 @@ export default function Home() {
             <option>Faculty of Humanities and Social Sciences</option>
             <option selected>Faculty of Engineering and Natrual Sciences</option>
             <option>Faculty of Health and Sciences</option>
-            <option>Faculty of Medicn</option>
+            <option>Faculty of Medicine</option>
           </select>
+          <img src={pPic} alt="Profile" className="profile-pic" />
         </div>
+
         <div className="InfoCardsContiner">
           <InfoCard link="/courses/AnnouncedCourses" title="unannounsed Courses" number="1"/>
           <InfoCard link="/courses" title="All courses" number="23"/>

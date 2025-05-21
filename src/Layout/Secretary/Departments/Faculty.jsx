@@ -3,16 +3,16 @@ import Box from './Box'
 export default function Faculty() {
   return (
     <section className='FacultyBar'>
-        <Box text='Faculty of communction' link  />
-        <Box text='Faculty of communction' link  />
-        <Box text='Faculty of communction' link  />
-        <Box text='Faculty of communction' link  />
-        <Box text='Faculty of communction' link  />
-        <Box text='Faculty of communction' link  />
-        <Box text='Faculty of communction' link  />
-        <Box text='Faculty of communction' link  />
-        <Box text='Faculty of communction' link  />
-        <Box text='Faculty of communction' link  />
+        <Box text='Place Holder' link  />
+        <Box text='Place Holder' link  />
+        <Box text='Place Holder' link  />
+        <Box text='Place Holder' link  />
+        <Box text='Place Holder' link  />
+        <Box text='Place Holder' link  />
+        <Box text='Place Holder' link  />
+        <Box text='Place Holder' link  />
+        <Box text='Place Holder' link  />
+        <Box text='Place Holder' link  />
     </section>
   )
 }

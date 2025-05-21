@@ -9,7 +9,7 @@ function HeadOfDepartments() {
     const [coursesListData, setCoursesListData] = useState([]);
   return (
     <div className='HeadOfDepartments'>
-        <h3 style={{fontFamily:'fantasy'}}>Faculty</h3>
+        <p>Faculty</p>
         <div className='HeadOfDepartmentsBtns'>
            <SearchBar List={coursesListData} onSearchResult={setOnSearchResult}/>
           <button class="btn btn-secondary rounded-2">
