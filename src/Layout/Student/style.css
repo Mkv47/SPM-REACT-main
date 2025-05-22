@@ -464,3 +464,93 @@ strong.CC,.CB,.BB,.BA,.AA { color: #6f3f55; }
     font-size: 14px;
     text-decoration: none;
 }
+
+@media (max-width: 989px), (max-height: 500px) {
+    .main-content {
+        width: 100vw;
+        padding: 15px 10px 0 10px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        max-height: 70vh;
+        gap: 10px;
+    }
+
+    .course-card {
+        padding: 20px;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+
+    .grade-box {
+        width: 70px;
+        height: 70px;
+        font-size: 16px;
+        padding: 5px 8px;
+    }
+
+    .card-actions {
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+    }
+
+    .btn {
+        width: 100%;
+        min-width: 0;
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .profile-pic {
+        width: 36px;
+        height: 36px;
+    }
+
+    .table-container {
+        gap: 10px;
+        padding: 10px;
+        border-radius: 6px;
+        max-height: 70vh;
+    }
+
+    .list {
+        margin: 0 5px 10px 5px;
+        padding: 8px;
+        border-radius: 6px;
+        max-height: 40vh;
+    }
+
+    .message {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .overlay-content {
+        width: 95vw;
+        padding: 10px;
+    }
+
+    .dropdown {
+        padding: 0.5rem;
+        border-radius: 6px;
+    }
+
+    .sideSelector {
+        min-height: 40px;
+    }
+
+    .tabs {
+        padding: 10px 5px 0 5px;
+        height: 40px;
+    }
+
+    .search-input {
+        font-size: 14px;
+        padding: 6px 10px;
+        border-radius: 15px;
+    }
+}

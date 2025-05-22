@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet , Link } from 'react-router-dom';
 import Box from './Box';
 import '../Courses/Courses.css';
+
 import Logo from '../../Z/22405fa43d89aeb0ddf96d741a2776df38abbdfe.png';
 import LogoOut from '../../Z/image.png';
 import pPic from '../../Z/149935571.jpg';
@@ -18,19 +19,19 @@ export default function Courses() {
         <Link to="/Home=Secretary">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Home</a>
+            <p>Home</p>
           </li>
         </Link>
         <Link to="/courses">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Courses</a>
+            <p>Courses</p>
           </li>
         </Link>
         <Link to="/departments">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Departments</a>
+            <p>Departments</p>
           </li>
         </Link>
         </ul>
@@ -44,11 +45,11 @@ export default function Courses() {
 
       <div class="main-container">
         <div className="top-bar-Secretary">
-          <select type="" placeholder="Search" className="search-input">
+          <select className="search-input" defaultValue="Faculty of Engineering and Natrual Sciences">
             <option>Faculty of Dentistry</option>
             <option>Faculty of Communication</option>
             <option>Faculty of Humanities and Social Sciences</option>
-            <option selected>Faculty of Engineering and Natrual Sciences</option>
+            <option>Faculty of Engineering and Natrual Sciences</option>
             <option>Faculty of Health and Sciences</option>
             <option>Faculty of Medicine</option>
           </select>

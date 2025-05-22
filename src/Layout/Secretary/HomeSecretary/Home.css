@@ -83,14 +83,16 @@
    font-size: 12px;
 }
 
-.Thetable p {
-   display: flex;
+.Thetable .element {
+  display: flex;
+  margin-bottom: 10px; /* Optional spacing */
 }
 
-.Thetable div {
-   display: flex;
-   min-width: 400px;
+.Thetable .element > div {
+  display: flex;
+  min-width: 400px;
 }
+
 
 .inner-List {
    display: flex;
@@ -108,6 +110,7 @@
    max-width: 200px;
    overflow: auto;
 }
+
 .Thetable input{
    margin-right: 20px;
 }

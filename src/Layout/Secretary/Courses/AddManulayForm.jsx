@@ -8,10 +8,10 @@ function AddManulayForm(props) {
         const [Instructor, setInstructor] = useState('');
         
     const FuncPost=()=>{
+     const  resitId = `resit-${CourseCode}`;
       axios.post('http://localhost:3000/course', {
         courseId :CourseCode,
         name: CourseName,
-        resitExamId: 'resit-431',
         department: Department,
         instructor: Instructor,
         secretaryId: "sec-001",
@@ -22,6 +22,21 @@ function AddManulayForm(props) {
       .catch(error => {
         console.error('Error fetching data:', error);
       });
+        let secretaryId = "sec-001";
+      // axios.post(`http://localhost:3000/secretary/resit-exams`, {
+      //   id: secretaryId,
+      //   resitExamId: resitId,
+      //   examDate: 'N/A', // TODO: Set exam date here
+      //   courseId: CourseCode,
+      //   deadline: 'N/A',
+      //   location: 'N/A',
+      // })
+      // .then(response => {
+      //   console.log(response.data);
+      // })
+      // .catch(error => {
+      //   console.error('Error fetching data:', error);
+      // });
     }
   return (
     <form className={`AddManulay ${props.Addmanualyopener ? 'isgrid' : 'isnone'}`} id="AddManulay" method="post" action="">

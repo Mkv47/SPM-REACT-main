@@ -29,9 +29,25 @@ import ResitExam from './Login/ResitExam';
 import StudentLogin from './Layout/Student/Login/StudentLogin';
 import ResitExamEntranceInstructor from './Layout/Instructor/Login/ResitExamEntranceInstructor';
 import FacultySecretary from './Layout/Secretary/Login/FacultySecretary';
-
+import axios from 'axios';
 
 function App() {
+   window.Addstudent = function(id, Name, email, password, secretaryId) {
+    const studentData = {
+      id: id,
+      name: Name,
+      email: email,
+      password: password,
+      secretaryId: secretaryId
+    };
+    axios.post('http://localhost:3000/student/', studentData)
+      .then(response => {
+        console.log('✅ Student added:', response.data);
+      })
+      .catch(error => {
+        console.error('❌ Error adding student:', error);
+      });
+   }
   return (
     <BrowserRouter>
       <Routes>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../style.css';
-
+import { useEffect } from 'react';
+import { GetCourseDetails, GetResitExamList } from './Functions';
 const examData = [
   {
     id: 1,
@@ -204,6 +205,58 @@ const examData = [
 
 const HomeList = () => {
   const [expandedCards, setExpandedCards] = useState({});
+    const [selectedIds, setSelectedIds] = useState([]);
+  const [CoursesListData, setCoursesListData] = useState([]);
+  const [Addmanualyopener, setAddmanualyopener] = useState(false);
+  const [resitExamIdList, setResitExamIdList] = useState([]);
+
+  const [onSearchResult, setOnSearchResult] = useState('');
+  const handleCheckboxChange = (event) => {
+    const id = event.target.value;
+    console.log(id)
+
+    if (event.target.checked) {
+      // Add id
+      setSelectedIds((prev) => [...prev, id]);
+    } else {
+      // Remove id
+      setSelectedIds((prev) => prev.filter((item) => item !== id));
+    }
+  };
+    // id: 1,
+    // code: 'MATH302',
+    // course: 'Numerical Analysis',
+    // professor: 'Prof. Dr. BURHAN PEKTAŞ',
+    // status: 'Optional',
+    // date: '9.04.2025',
+    // time: '11:00',
+    // rooms: ['A-Nermin Tarhan', 'A-Kuleli', 'D-Ayhan Songar'],
+    // grade: 'FF',
+    const examlist=()=>{
+      
+    }
+
+
+
+      useEffect(() => {
+     const fetchData = async () => {
+      let id= '1';
+      const resits = await GetResitExamList(id);
+      const courses = await GetCourseDetails(id);
+
+      setResitExamIdList(resits);
+      setCoursesListData(courses);
+    };
+        fetchData();
+      }, []);
+
+
+
+   function splitDateTime(isoString) {
+    const [date, timeWithZ] = isoString.split('T');
+    const time = timeWithZ.replace('Z', '');
+    return { date, time };
+  }
 
   const toggleDetails = (id) => {
     setExpandedCards((prev) => ({ ...prev, [id]: !prev[id] }));

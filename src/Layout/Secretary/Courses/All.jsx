@@ -2,25 +2,34 @@ import React, { useState, useEffect } from 'react';
 import CoursesRow from './CoursesRow';
 import SearchBar from '../../../Btns/SearchBar';
 import AddManulayForm from './AddManulayForm';
+import AnnouncmentForm from './AnnouncmentForm';
 import axios from 'axios';
-
+import { GetCourses, GetResitExamList, Deletecourse,splitDateTime } from './Functions';
 export default function All() {
-  const [Addmanualyopener, setAddmanualyopener] = useState(false);
-  const [coursesListData, setCoursesListData] = useState([]); // State to hold course data
-  const [onSearchResult, setOnSearchResult] = useState('');
+   const [Addmanualyopener, setAddmanualyopener] = useState(false);
+       const [AnnouncmentForm, setAnnouncmentForm] = useState(false);
+    //the list is result of the search bar meaning that this list is the filtered list
+   const [onSearchResult, setOnSearchResult] = useState('');
+   // State to hold the list of resit exams
+  const [resitExamList, setResitExamList] = useState([]);
+  // State to hold the list of courses
+  const [coursesListData, setCoursesListData] = useState([]); 
+  const [selectedid, setSelectedid] = useState([]);
+  //get all courses at the beginning of the page,it get the resit exam list and the courses list
+  const fetchData = async () => {
 
-  // Function to fetch course data
-  const GetFunc = () => {
-    axios
-      .get('http://localhost:3000/secretary/courses')
-      .then((response) => {
-        setCoursesListData(response.data); // Set the fetched data to state
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  };
-  
+   const resits = await GetResitExamList();
+   const courses = await GetCourses();
+
+   setResitExamList(resits);
+   setCoursesListData(courses);
+ };
+      useEffect(() => {
+        fetchData();
+      }, []);
+     
+
+   //functions to handle the deletion of selected courses
    const [selectedIds, setSelectedIds] = useState([]); // State to hold selected course IDs
    const handleCheckboxChange = (event) => {
     const id = event.target.value;
@@ -32,24 +41,21 @@ export default function All() {
       // Remove id
       setSelectedIds((prev) => prev.filter((item) => item !== id));
     }}
-  // Fetch data when the component mounts
-  useEffect(() => {
-    GetFunc();
-  }, []);
+
 
   return (
     <div className="theList theListofcourses right">
       <nav className="ControlOfTheList">
         <div className="leftInput">
-          <button className="btn btn-danger rounded-1">
+          <button onClick={()=>{ Deletecourse(selectedIds); fetchData();}} className="btn btn-danger rounded-1">
             <i className="bi bi-trash-fill me-2"></i>
-              Button
+              delete
           </button>
           <button className="btn btn-secondary rounded-1">
             <i className="bi bi-filter"></i>
             filter
           </button>
-          <SearchBar List={coursesListData} onSearchResult={setOnSearchResult}/>
+          <SearchBar List={coursesListData} setOnSearchResult={setOnSearchResult}/>
         </div>
 
         <button
@@ -75,19 +81,37 @@ export default function All() {
       </nav>
       <div className="Thetable Thetableofcourses" id="Thetable">
         {/* Iterate over coursesListData */}
-     {(Array.isArray(onSearchResult) && onSearchResult.length > 0 ? onSearchResult : coursesListData).map((item) => (
+     {(Array.isArray(onSearchResult) && onSearchResult.length > 0 ? onSearchResult : coursesListData).map((item) => {
+          // Find the corresponding resit exam object 
+          const resitExamobj = resitExamList.find(resit => resit.id === item.resitExamId);
+          const examDate = resitExamobj?.examDate || 'N/A';
+          const { date, time } = examDate !== 'N/A' ? splitDateTime(examDate) : { date: 'N/A', time: 'N/A' };
+          const room = resitExamobj?.location || 'N/A';
+          const DateModified = resitExamobj?.updatedAt || 'N/A';
+          return (
           <CoursesRow
             key={item.id}
             CourseId={item.id}
             courseName={item.name}
             courseInstructor={item.instructor}
             courseRoom={item.room || 'N/A'} // Assuming room is optional
-            courseDate={item.date || 'N/A'} // Assuming date is optional
-            courseTime={item.time || 'N/A'} // Assuming time is optional
-            dateModified={item.dateModified || 'N/A'} // Assuming dateModified is optional
+            courseDate={date || 'N/A'} // Assuming date is optional
+            courseTime={time || 'N/A'} // Assuming time is optional
+            dateModified={DateModified || 'N/A'} // Assuming dateModified is optional
+            handleCheckboxChange={handleCheckboxChange}
+            selectedIds={selectedIds}
+            renderafterdelete={fetchData}
+           opener={setAddmanualyopener}
+                  // Pass the fetchData function to refresh the list after deletion 
           />
-        ))}
+          );
+        })}
       </div>
+       {/* <AnnouncmentForm
+        AnnouncmentForm={Addmanualyopener}
+        setAnnouncmentForm={setAddmanualyopener}
+        course=
+      />  */}
       <AddManulayForm
         Addmanualyopener={Addmanualyopener}
         setAddmanualyopener={setAddmanualyopener}

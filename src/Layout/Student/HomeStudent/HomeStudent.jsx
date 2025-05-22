@@ -9,8 +9,9 @@ import pPic from '../../Z/149935571.jpg'
 import '../../Z/Sidenav.css'
 import HomList from './Manager';
 import '../style.css'
-
+import { GetCourseDetails, GetResitExamList,  } from './Functions';
 export default function Home() {
+  
 
   return (
     <>

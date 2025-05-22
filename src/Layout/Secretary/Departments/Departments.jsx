@@ -18,19 +18,19 @@ function Departments() {
         <Link to="/Home=Secretary">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Home</a>
+            <p>Home</p>
           </li>
         </Link>
         <Link to="/courses">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Courses</a>
+            <p>Courses</p>
           </li>
         </Link>
         <Link to="/departments">
           <li>
             <i className="bi bi-grid-fill"></i>
-            <a>Departments</a>
+            <p>Departments</p>
           </li>
         </Link>
         </ul>
@@ -44,11 +44,11 @@ function Departments() {
 
       <div class="main-container">
         <div className="top-bar-Secretary">
-          <select type="" placeholder="Search" className="search-input">
+          <select type="" defaultValue="Faculty of Engineering and Natrual Sciences" placeholder="Search" className="search-input">
             <option>Faculty of Dentistry</option>
             <option>Faculty of Communication</option>
             <option>Faculty of Humanities and Social Sciences</option>
-            <option selected>Faculty of Engineering and Natrual Sciences</option>
+            <option >Faculty of Engineering and Natrual Sciences</option>
             <option>Faculty of Health and Sciences</option>
             <option>Faculty of Medicine</option>
           </select>
